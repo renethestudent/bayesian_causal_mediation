@@ -1,16 +1,24 @@
 ---
 title: 'Bayesian Zero- and- One Inflated Beta Regression in Stan with Causal Mediation'
-output: github_document
-
+author: 'Lexi Rene'
+output:   
+  github_document:
+    pandoc_args: --webtex=https://ibm.codecogs.com/png.latex?
+always_allow_html: yes
 ---
 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+\newcommand*{\indep}{\perp \!\!\! \perp}
+
+
+
 ## Purpose
 
-This code implements a non-parametric Bayesian appraoch to causal mediation anaylsis, using a zero-one inflated beta regression model in STAN.To illustrate the method, the JOBS II data is used. This dataset can be found in the R package [`mediation`](https://cran.r-project.org/web/packages/mediation/index.html).The JOBS II study was a randomized field experiment that investigated the efficacy of a job training intervention on unemployed workers. In this dataset there are 899 observations, containing no missing values. The potential outcome variable, `depress2`, is a continuous measure of depressive symptoms post-treatment (participation in job-skills workshops). The mediator variable, `job_seek`, is a continuous measure of job search self-efficacy. The treatment variable, `treat` is an indicator variable for whether the participant was randomly selected for the JOBS II training program. 
+This code implements a Bayesian appraoch to causal mediation anaylsis, using a zero-one inflated beta regression model in STAN. To illustrate the method, the JOBS II data is used. This dataset can be found in the R package [`mediation`](https://cran.r-project.org/web/packages/mediation/index.html). The JOBS II study was a randomized field experiment that investigated the efficacy of a job training intervention on unemployed workers. In this dataset there are 899 observations, containing no missing values. The potential outcome variable, `depress2`, is a continuous measure of depressive symptoms post-treatment (participation in job-skills workshops). The mediator variable, `job_seek`, is a continuous measure of job search self-efficacy. The treatment variable, `treat` is an indicator variable for whether the participant was randomly selected for the JOBS II training program. 
 
 
 ## Pre-process data
@@ -21,37 +29,160 @@ For pre-processing of the data, the predictors are scaled using the R function `
 library(rstan)
 library(mediation)
 library(ggplot2)
+library(tictoc)
+library(bayesplot)
+library(kableExtra)
+library(ggpubr)
+# library(shinystan)
 
 data(jobs); invisible(names(jobs))
 
 normalize <- function(x){ 
   return((x- min(x)) /(max(x)-min(x)))
 }
+round_df <- function(x, digits) {
+    # round all numeric variables
+    # x: data frame 
+    # digits: number of digits to round
+    numeric_columns <- sapply(x, class) == 'numeric'
+    x[numeric_columns] <-  round(x[numeric_columns], digits)
+    x
+}
+num_seed = 1810201
 
 ## create data 
 scaled_z <- scale(jobs[,c('econ_hard','sex','age')])
 trt <- jobs$treat
 
 ## scale mediate and outcome
-y = normalize(jobs$depress2)
-med = normalize(jobs$job_seek)
+y <- normalize(jobs$depress2)
+med <- normalize(jobs$job_seek)
 
 qplot(y, geom = 'histogram', binwidth = .025, ylab = 'Frequency', xlab = 'Measure of Depression', fill=I('white'), col=I('blue')) + theme_bw() + theme(panel.grid.minor = element_blank())
 qplot(med, geom = 'histogram', binwidth = .025, ylab = 'Frequency', xlab = 'Measure of Confidence/Self- Efficacy in Job Search', fill=I('white'), col=I('blue')) + theme_bw() + theme(panel.grid.minor = element_blank())
 
 ```
 
+## Causal Mediation Analysis
+### Potential/ Counterfactual Framework
+Using the potential (counterfactual) outcome framework, the causal effect of the job training program can be defined as the difference between two potential outcomes. One potential outcome is realized if the subject participates in the training program and the other potential outcome is realized if the subject does not participate. 
+
+Suppose we use $Y_i$ to represent the measure of depression for the $i^{th}$ subject, $M_i$, the measure of confidence/self efficiacy in the job search for the $i^{th}$ subject, and $A_i$, the binary indicator variable for the $i^{th}$ subject's treatment/participation in the JOBS II training program; $A_i$ takes on the values of $a= 1$ (participation in the training) or $a = 0$ (otherwise). The depression level of subject $i$ is independent of subject $j$ ($i \ne j$). In addition, since the treatment in the JOBS II study is randomized, $A_i$ is statistically independent of the potential outcomes; we can write this as $\left(Y_i^{A_i = 0},Y_i^{A_i = 1}\right) \indep{} A_i$. The observed value for the depression level can be denoted by $Y_i$, where $Y_i = Y_i^{A_i}$, which can result in two potential values. For example, $Y_i^{A_i=1}$ would be the observed depression level for subject $i$, if subject $i$ actually participated in the training program; in this case, the unobserved outcome for subject $i$ is the level of depression if they did not participate in the training program. We will use $Y_i^{A_i = a}$ to represent the potential level of depression that would result under the treatment status $a$ for subject $i$. In addition, in causal mediation analysis, the potential outcome also depends on the mediator. In the context of this study, this implies that the level of job search self-efficacy can be affected by participation in the program, which can be represented by $M_i^{A_i=a}$; which also has two potential values $M_i^{A_i=0}$ and $M_i^{A_i=1}$. The potential mediator value of subject $i$ are independent of the treatment status for subject $j$ ($i \ne j$). Therefore, we will update the potential outcome to be denoted as $Y_i^{A_i, M_i^{A_i }}$ and also note that the potential outcome for subject $i$ is indepedent of both the treatment status and the mediator value of subject $j$ ($i \ne j$).
+
+### Causal Mediation Effects
+The statistical independence between the treatment and the potential outcome allows us to compute the average causal effect as the observed mean difference between the treatment and control group:
+<center>$$E[Y_i^{A_i=1}-Y_i^{A_i=0}] = E[Y_i^{A_i=1}|A_i = 1] - E[Y_i^{A_i=0}|A_i = 0] \quad (average \;causal \; effect)$$</center>
+
+Under the counterfactual/potential outcome framework, only one potential outcome of $Y_i^{A_i=a, M_i^{A_i=a }$ is observed. Let $Z_i$ be a vector of baseline covariate for each subject $i$ and $\mathscr Z$ be the support of the distribution of $Z_i$; in addition, the support of $M_i$ is $\mathscr{M}$. To identify the effects of treatment and mediation, we assume sequential ignorability, as per Imani et al, by assuming the following two statements of conditional independence hold:
+<br />
+<center>
+$$\Bigl \{ Y_i^{A_i = a', m = M_i^{A_i = a'}}, \; M_i^{A_i=a} \Bigr \} \indep{} A_i|Z_i=z \qquad  (1) \\
+Y_i^{A_i=a', m = M_i^{A_i=a'}} \indep{} M_i|A_i,Z_i = z \qquad (2)$$
+</center>
+
+where $P(A_i=a|Z_i=z) > 0$ and $P(m=M_i^{A_i = a}|A_i=a,Z_i=z) > 0$ for $a = 0, 1$, and, all $z \in \mathscr{Z}$ and $m \in \mathscr{M}$.
+
+These ignorability assumptions are made sequentially. The first part of the assumption assumes that given the observed confounders, prior to treatment, the treatment assignment is ignorable. In terms of statistical independence, the observed pre-treatment is independent of the potential outcomes and potential mediators. The second part of sequential ignorability states that the mediator is ignorable given the observed treatment and pre-treatment confounders; meaning that the potential outcome and mediator are unconfounded on the past observations and confounders.  
+
+
+The indirect effect of the treatment on the outcome, through the mediating variable is defined as the causal mediation effect (Imai et al., 2010), for $a = 0, 1$:
+<center>$$\quad \delta_i^{A_i=a} \equiv Y_i^{A_i=a, M_i^{A_i=1 }} - Y_i^{A_i=a, M_i^{A_i=0 }}  \\ (causal \; mediation/ natural\; indirect \; effect)$$</center>
+
+The following definitions are defined as the effect of the treatment $(a = 0, 1)$, on the outcome, through the mediation variable:
+
+The average causal mediation effect is defined by:
+<center>$$\qquad \overline{\delta^{A=a}} \equiv E\left[Y_i^{A_i=a, M_i^{A_i=1 }} - Y_i^{A_i=a, M_i^{A_i=0 }}\right]  \\ 
+(average \; causal \; mediation/ natural\; indirect \; effect)$$</center>
+
+The direct effect is defined by:
+<center>$$\zeta_i^{A_i=a} \equiv Y_i^{A_i=1, M_i^{A_i=a }} - Y_i^{A_i=0, M_i^{A_i=a }}  \\
+\qquad (natural\; direct \; effect)$$</center>
+
+The average direct effect is defined by:
+<center>$$\overline{\zeta^{A=a}} \equiv E\left[Y_i^{A_i=1, M_i^{A_i=a }} - Y_i^{A_i=0, M_i^{A_i=a }}\right]  \\ 
+\qquad (average\; natural\; direct \; effect)$$</center>
+
+The total effect is defined by:
+<center>$$\tau_i \equiv Y_i^{A_i=1, M_i^{A_i=1 }} - Y_i^{A_i=0, M_i^{A_i=0 }}  \\
+\qquad (total \; effect)$$</center>
+
+Lastly, the average total effect is defined by:
+<center>$$\overline{\tau} \equiv E\left[Y_i^{A_i=1, M_i^{A_i=1 }} - Y_i^{A_i=0, M_i^{A_i=0 }}\right]  \\ 
+\qquad (average \; total \; effect)$$</center>
+
+Under the assumptions from $(1)$ and $(2)$, Imai et al. then showed that the distribution of the potential outcomes is nonparametrically identified:
+<center>$$\begin{align*} f \left( Y_i^{A_i, M_i^{A_i= a'}} |Z_i = z \right) = \int_M f(Y_i|M_i = m, A_i = a, Z_i = z)dF_{M_i}(m|A_i=a',Z_i=z) \quad x \in X; \; a,a' = 0,1 \qquad (3) \end{align*}$$</center>
+
+This result allows us to estimate the potential outcome and mediators that we are unable to observe. 
+
 ## Statistical Model
-Both the response variables, `depress2` and `job_seek` appear to follow a beta distribution and lie within the bounds [0,1]. Since 0 and 1 are included in the interval, we will model the data using a zero- and- one inflated beta regression model.
+#### Densities
+The density of a random variable $R$ with a beta distribution, where $0 < r < 1$, can be reparametrized (Ferrari & Cribari-Neto 2004) to be defined as:
+<center>
+$$f_{beta}(r;\mu,\phi) = \frac{\Gamma(\phi)}{\Gamma(\mu\phi)\Gamma((1-\mu)\phi)}r^{\mu\phi}(1-r)^{(1-\mu)\phi-1} \quad(6)$$
+</center>
+<em> Note for $(6)$: $\Gamma(\cdot)$ denotes the gamma function, $E[R] = \mu$, and $Var(R) = \frac{\mu(1-\mu)}{\phi+1}$; $\phi$ is a precision parameter, where for a fixed $\mu$, there is an inverse relationship between $\phi$ and $Var(R)$.</em>
 
-$$f(response;\alpha_*, \gamma_*, \mu_*, \phi_*)
+Using $(3)$ we further assume the following regression models for both the response variables, `depress2`, $y$, and `job_seek`, $m$, to follow a zero-one inflated beta (ZOIB) distribution, as they lie within the bounds [0,1]. The cumulative distribution function of the random variable $R$ under a ZOIB distribution is:
+
+<center>
+$\begin{align*}
+F_{ZOIB}(R;\alpha, \gamma, \mu, \phi) = \alpha \; \text{I}(r=0) + (1-\alpha)\gamma \; \text{I}(r = 1) + (1-\alpha)(1-\gamma)F_{beta}(R;\mu,\phi)
+\end{align*}$
+</center>
+
+
+Where the density of $R$,is defined as:
+<center>
+$$f_{ZOIB}(r_i;\alpha, \gamma, \mu, \phi) =
   \begin{cases}
-        \alpha_*(1-\gamma_*) & \text{if  y = 0} \\
-        \alpha_*\gamma_* & \text{if  y = 1} \\
-        (1-\alpha_*)f(response;\mu_*,\phi_*) & \text{if  y } \in \text{(0,1)} \\
-  \end{cases}$$
+        \alpha & \text{if } r_i = 0 \\
+        (1-\alpha)\gamma & \text{if  } r_i = 1 \\
+        (1-\alpha)(1-\gamma)f_{beta}(r_i;\mu_{i},\phi_{i}) & \text{if  }r_i \in \text{(0,1)} \\
+  \end{cases}
+  \quad (7)$$
 
-Where $ 0 <\alpha, \gamma, \mu < 1 ,\;\; \phi > 0, \;\; f(response;\mu_*,\phi_*)~ Beta(p_*= \mu_*\phi_*, q_*= \phi_*(1-\mu_*)) $
+${0 < \alpha, \gamma, \mu < 1 ,\;\; \phi > 0, \;\; f_{beta}(r;\mu,\phi) \sim Beta(p= \mu\phi,\: q= \phi(1-\mu))}$
+</center>
+
+here $\alpha$ is the probability that the response is equal to zero, $\gamma$ is the probability that the response is equal to one, given the probability that the response is not equal to zero, $\mu$ is the expected value of the beta distribution, $\phi$ is the precision of the beta distribution, and $p$ and $q$ are shape parameters; $\mu = \frac{p}{p+q}$ and $\phi = p + q$ (Ferrari & Cribari-Neto 2004). 
+Ultimately, $Y \sim ZOIB(y;\alpha_y, \gamma_y, \mu_y, \phi_y)$ and $M \sim ZOIB(m;\alpha_m, \gamma_m, \mu_m, \phi_m)$.
+
+The $k^{th}$ moment for the density $(7)$ of $R$ and its' variance can be written as:
+<center>
+$$\qquad E[R^{k}] = (1-\alpha)\gamma + (1-\alpha)(1-\gamma)\mu_k , \quad k = 1,2,... \qquad (7.1)\\
+Var(R) = ((1-\alpha)\gamma)(1-((1-\alpha)\gamma)) + (1-\alpha)(1-\gamma)\left [ \frac{\mu(1-\mu)}{\phi+1} + \mu^2-\mu(1-\alpha)(2\gamma+\mu(1-\gamma)) \right ] \quad (7.2)$$
+</center>
+ 
+
+#### Bayesian approach to Causal Mediation Analysis
+##### Bayesian Approach
+$R \sim f_{ZOIB}(r;\alpha, \gamma, \mu, \phi)$ where we assume 
+<center>$$\begin{align*}h^{-1}(\alpha) = X\beta_{\alpha} \qquad \\
+h^{-1}(\gamma) = X\beta_{\gamma} \qquad \\
+h^{-1}(\mu) = X\beta_{\mu} \qquad \\
+exp(\phi) = X\beta_{\phi} \qquad \\
+ \\
+\beta_{[-1]\alpha} \sim MVN(0,\Sigma_{\alpha}^{2}), \\
+\beta_{[-1]\gamma} \sim MVN(0,\Sigma_{\gamma}^{2}), \\
+\beta_{[-1]\mu} \sim MVN(0,\Sigma_{\mu}^{2}), \\
+\beta_{[-1]\phi} \sim MVN(0,\Sigma_{\phi}^{2})\end{align*}$$</center>
+
+where the link function $h$ is a logit link function; $h^{-1}$, is the inverse of the link function that map values to a proportion between 0 and 1. $MVN$ is the Multivariate Normal distribution, and $\beta_{[-1]}$ represents distribution of the $\beta$ coefficients, excluding the intercept; the intercept of every $\beta$ coefficient is assigned a uniform prior distribution.
+
+For the mediator model, $X$ is a matrix containing the intercept, the baseline covariates, $Z$, and the treatment variable $A$. For the outcome model, $X$ is a matrix containing the intercept, the baseline covariates, $Z$, the treatment variable $A$, and the mediator variable $M$ under a specified treatment.
+
+##### Procedure
+1. Assign the prior covariance matrix per parameter for the $\beta$ coefficients. 
+2. Using these priors and the observed data, fit the models for the mediator and the outcome. Simulate the model parameters to obtain the estimated coefficients for each sampling distribution: $\theta_M$ and $\theta_Y$. 
+3. For each chain of the simulation: create a new dataset, of size $sim$, by taking a random sample, of the rows, with replacement,from the original data. The probabilty of selection for each row is given by $\omega_i$; $\omega = (\omega_1, \omega_2,...\omega_n) \sim Dir(1,1,...,1)$.
+4. Duplicate the dataset created in step 3. In one of the duplicated datasets, set the treatment variable to $a$ for the entire dataset. In the other duplicated dataset, set the treatment variable to $a'$. 
+5. Using the duplicated datasets created in step 4, simulate new values of the mediator for each subject. Simulate these new mediator values using the estimated parameters from step 2. This step will result in two variables, the mediator under treatment $a$, ($M^a$), and the meditor under treatment $a'$, ($M^{a'}$). 
+6. Using the duplicated datasets from step 4 and the new simulated mediator values from step 5, create a total of four datasets. Half of these datasets will have the treatment variable set to $a$ for the entire dataset and the other half will have the treatment variable set to $a'$ for the entire dataset. For the half of the datasets that have treatment set to $a$, set the mediator value for one entire dataset to $M^a$ and for the other dataset set the mediator value to $M^{a'}$. Do the same for the second half of the datasets that have the treatment set to $a'$.
+7. Simulate new values of the outcome for each dataset created in step 6. Simulate these new outcome values using the estimated parameters from step 2. 
+8. Use the simulated outcome values from step 7 to compute the average direct, indirect, and total effect between the two outcome predictions under each treatment status.
+
+The steps above will be programmed in STAN. 
 
 ## Store data and input in a list to send to STAN
 
@@ -59,7 +190,7 @@ The STAN model accepts the following values stored in a list:
 
     * n - the total number of observations
     
-    * np - the total number of predictors,excluding the intercept
+    * np - the total number of predictors,excluding the intercept and the treatment
     
     * sim - the total number of iterations per chain
         
@@ -90,41 +221,379 @@ The STAN model accepts the following values stored in a list:
 ```{r create_standatalist}
 jobs_data <-
   list(n = nrow(scaled_z),
-       np = ncol(scaled_z), ## number of parameters excluding intercept
+       np = ncol(scaled_z),
        sim = 1000,
        y = y,
        m = med,
        a = trt,
        z = scaled_z,    
        ## cov_m: prior for coefficients of the mediatior model; include treatment, do NOT include the intercept or mediator
-       alpha_cov_m = 5*diag(1, ncol(scaled_z)+1), ## == np + 1
-       gamma_cov_m = 5*diag(1, ncol(scaled_z)+1),
-       mu_cov_m = 5*diag(1, ncol(scaled_z)+1),
-       phi_cov_m = 5*diag(1, ncol(scaled_z)+1),
+       alpha_cov_m = diag(5, ncol(scaled_z)+1), ## == np + 1
+       gamma_cov_m = diag(5, ncol(scaled_z)+1),
+       mu_cov_m = diag(5, ncol(scaled_z)+1),
+       phi_cov_m = diag(5, ncol(scaled_z)+1),
        ## cov_y: prior for coefficients of the outcome model; include the mediator and treatment, do not include the intercept
-       alpha_cov_y = 5*diag(1, ncol(scaled_z)+2),  ## == np + 2
-       gamma_cov_y = 5*diag(1, ncol(scaled_z)+2),
-       mu_cov_y = 5*diag(1, ncol(scaled_z)+2),
-       phi_cov_y = 5*diag(1, ncol(scaled_z)+2)
+       alpha_cov_y = diag(5, ncol(scaled_z)+2),  ## == np + 2
+       gamma_cov_y = diag(5, ncol(scaled_z)+2),
+       mu_cov_y = diag(5, ncol(scaled_z)+2),
+       phi_cov_y = diag(5, ncol(scaled_z)+2)
   )
 ```
 
 ## Stan Model
 This model will return: 
     
-    * all_params_y - alpha, gamma, p, q for the outcome model (1:nchains*sim,1:n,1:4)
+    * all_params_y - alpha, gamma, p, q for the outcome model (1:iterations,1:n,1:4)
     
-    * all_params_m - alpha, gamma, p, q for the mediator model (1:nchains*sim,1:n,1:4)
+    * all_params_m - alpha, gamma, p, q for the mediator model (1:iterations,1:n,1:4)
     
-    * coef_mediator -  alpha, gamma, mu, phi;  coefficients for the mediator model (1:nchains*sim,1:np,1:4)
+    * coef_mediator -  alpha, gamma, mu, phi;  coefficients for the mediator model (1:iterations,1:np,1:4)
     
-    * coef_outcome -  alpha, gamma, mu, phi; coefficients for the outcome model (1:nchains*sim,1:np+1,1:4)
+    * coef_outcome -  alpha, gamma, mu, phi; coefficients for the outcome model (1:iterations,1:np+1,1:4)
     
-    * tau - total effect (length = nchains * sim)
+    * tau - total effect (length = total iterations)
     
-    * delta - causal effect (1:nchains*sim, 2) where [t= 0, t = 1]
+    * delta - causal effect (1:iterations, 2) where [t = 0, t = 1]
     
-    * zeta - direct effect (1:nchains*sim, 2) where [t= 0, t = 1]
+    * zeta - direct effect (1:iterations, 2) where [t = 0, t = 1]
+    
+    * pred_m - generated quantities, prediction of the mediator (1:iterations, 1:sim, 2) where [t = 0, t = 1]
+    
+    * pred_y - generated quantities, prediction of the outcome (1:iterations, 1:sim, 4) where [y0m0, y0m1, y1m1, y1m0]
 
-We can fit the model in Stan with the following code:
+*Note: pred_y has the columns to represent $Y^{A=a, M^{A=a}}$.*
 
+We can fit the model in Stan with the following code . 
+
+```{r stan_function, message = F, warning = F, results = 'hide'}
+# stan_zoib <- stan_model('~/Google Drive TheStudent/Dissertation Hours/Code/STAN/bk_zoib_regression_github.stan')
+# test_fit <- sampling(stan_zoib, data = jobs_data)
+
+stan_zoib <- stan_model(model_code = '
+functions{
+  matrix calc_zoib_par(matrix x_f,matrix coef_f){
+    vector[rows(x_f)] p_f;
+    vector[rows(x_f)] q_f;
+    matrix[rows(x_f), cols(coef_f)] x_theta;
+    matrix[rows(x_f), cols(coef_f)] params_hold;
+    matrix[rows(x_f), 2] new_alpha_gamma;
+    matrix[rows(x_f), 2] p_and_q;
+      
+    x_theta =  x_f * coef_f;   
+      x_theta[,1] = inv_logit(x_theta[,1]);
+      x_theta[,2] = inv_logit(x_theta[,2]);
+      x_theta[,3] = inv_logit(x_theta[,3]);
+      x_theta[,4] = exp(x_theta[,4]);
+    p_f = x_theta[,3] .* x_theta[,4];
+    q_f = x_theta[,4] - p_f;
+  
+    p_and_q = append_col(p_f,q_f);
+    new_alpha_gamma = append_col(x_theta[,1], x_theta[,2]);
+    params_hold = append_col(new_alpha_gamma, p_and_q); 
+  return params_hold ;
+  } 
+
+  matrix calc_pred(matrix param_pred, int num_trt_splits){
+      matrix[(cols(param_pred)-num_trt_splits), rows(param_pred)] wt;
+      int sim = rows(param_pred);
+      int d = 1;
+      int i = 1;
+      
+      while( d < cols(param_pred)-3){
+        wt[d,] = to_row_vector(param_pred[,i]);
+        wt[d+1,] = to_row_vector((rep_vector(1,sim)-param_pred[,i]) .* param_pred[,i+1]);
+        wt[d+2,] = to_row_vector((rep_vector(1,sim)-param_pred[,i]) .* (rep_vector(1,sim)-param_pred[,i+1]));
+        d += 3;
+        i += 4;
+      }
+  return wt;
+  } 
+} 
+data{
+  int n;
+  int np; // number of parameters excluding intercept and treatment
+  int sim;
+  vector<lower=0, upper=1>[n] y;
+  vector<lower=0, upper=1>[n] m;
+  vector[n] a; //treatment variable
+  matrix[n, np] z;
+  matrix[np+1, np+1] alpha_cov_m;
+  matrix[np+1, np+1] gamma_cov_m;
+  matrix[np+1, np+1] mu_cov_m;
+  matrix[np+1, np+1] phi_cov_m;
+  matrix[np+2, np+2] alpha_cov_y;
+  matrix[np+2, np+2] gamma_cov_y;
+  matrix[np+2, np+2] mu_cov_y;
+  matrix[np+2, np+2] phi_cov_y;
+}
+transformed data{
+  matrix[n, np+2] x; //ncol(z), trt, int
+  matrix[n, np+3] x_out;
+  x = append_col(append_col(rep_vector(1,n),z), a); //insert col for intercept of 1s
+  x_out = append_col(x, m);
+}
+parameters{
+  matrix[np+2, 4] coef_mediator;
+  matrix[np+3, 4] coef_outcome;
+}
+transformed parameters{
+  matrix[n, 4] all_params_m;
+  matrix[n, 4] all_params_y;
+  all_params_m = calc_zoib_par(x, coef_mediator);
+  all_params_y = calc_zoib_par(x_out, coef_outcome);
+}
+model{
+  // coefficients for mediator model; does not include the mediator
+  coef_mediator[2:,1] ~ multi_normal(rep_vector(0,cols(x)-1), alpha_cov_m);
+  coef_mediator[2:,2] ~ multi_normal(rep_vector(0,cols(x)-1), gamma_cov_m);
+  coef_mediator[2:,3] ~ multi_normal(rep_vector(0,cols(x)-1), mu_cov_m);
+  coef_mediator[2:,4] ~ multi_normal(rep_vector(0,cols(x)-1), phi_cov_m);
+  
+  // coefficients for outcome model; includes the mediator
+  coef_outcome[2:,1] ~ multi_normal(rep_vector(0,cols(x_out)-1), alpha_cov_y);
+  coef_outcome[2:,2] ~ multi_normal(rep_vector(0,cols(x_out)-1), gamma_cov_y);
+  coef_outcome[2:,3] ~ multi_normal(rep_vector(0,cols(x_out)-1), mu_cov_y);
+  coef_outcome[2:,4] ~ multi_normal(rep_vector(0,cols(x_out)-1), phi_cov_y);
+
+  // zero one inflated beta likelihood
+    for (i in 1:n) {
+      if (y[i] == 0) {
+        target += log(all_params_y[i,1]) ;
+      } else if (y[i] == 1) {
+        target += log1m(all_params_y[i,1]) + log(all_params_y[i,2]);
+      } else {
+        target += log1m(all_params_y[i,1]) + log1m(all_params_y[i,2]) + beta_lpdf(y[i] | all_params_y[i,3], all_params_y[i,4]);
+      }
+    
+      if (m[i] == 0) {
+        target += log(all_params_m[i,1]);
+      } else if (m[i] == 1) {
+        target += log1m(all_params_m[i,1]) + log(all_params_m[i,2]);
+      } else {
+        target += log1m(all_params_m[i,1]) + log1m(all_params_m[i,2]) + beta_lpdf(m[i] | all_params_m[i,3], all_params_m[i,4]);
+      }
+    }
+}
+generated quantities{
+  real tau;
+  vector[2] delta;
+  vector[2] zeta;
+  matrix[sim, 2] pred_m;
+  matrix[sim, 4] pred_y;
+  {
+    int index;
+    matrix[sim, 16] param_pred_y;
+    matrix[sim, 8] param_pred_m;
+    vector[rows(z)] wt;
+    matrix[6, sim] wt_m; // three possible outcomes for density per trt
+    matrix[12, sim] wt_y;
+    matrix[sim, np+2] X_sample;
+    matrix[sim, np+2] X_m0;
+    matrix[sim, np+2] X_m1;
+    matrix[sim, np+3] X_y0_m0;
+    matrix[sim, np+3] X_y0_m1;
+    matrix[sim, np+3] X_y1_m0;
+    matrix[sim, np+3] X_y1_m1;
+    
+      wt = dirichlet_rng(rep_vector(1, rows(z))); 
+      for (j in 1:sim){
+        index = categorical_rng(wt);
+        X_sample[j,:] = x[index,:];
+      }
+
+      X_m0 = X_sample;
+      X_m0[:,cols(x)] = rep_vector(0, sim); // cols(x) == index for last col of x, which is treat
+
+      X_m1 = X_sample;
+      X_m1[:,cols(x)] = rep_vector(1, sim);
+      
+      // calculate new alpha, gamma, mu, phi
+      param_pred_m[,1:4] = calc_zoib_par(X_m0, coef_mediator);
+      param_pred_m[,5:8] = calc_zoib_par(X_m1, coef_mediator);
+    
+      wt_m = calc_pred(param_pred_m, 2);
+
+      for(k in 1:sim){
+        int index_wtm0 = categorical_rng(wt_m[1:3,k]);
+        int index_wtm1 = categorical_rng(wt_m[4:6,k]);
+        
+        if (index_wtm0 == 1){ pred_m[k,1] = 0;}
+          else if (index_wtm0 == 2){pred_m[k,1] = 1;}
+            else if (index_wtm0 == 3){pred_m[k,1] = beta_rng(param_pred_m[k,3],param_pred_m[k,4]);}
+            
+        if (index_wtm1 == 1){ pred_m[k,2] = 0;}
+          else if (index_wtm1 == 2){pred_m[k,2] = 1;}
+            else if (index_wtm1 == 3){pred_m[k,2] = beta_rng(param_pred_m[k,7],param_pred_m[k,8]);}
+      }
+      
+      X_y0_m0 = append_col(X_m0, pred_m[,1]);
+      X_y0_m1 = append_col(X_m0, pred_m[,2]);
+      X_y1_m1 = append_col(X_m1, pred_m[,2]);
+      X_y1_m0 = append_col(X_m1, pred_m[,1]);
+      
+      //coef_mediator is np+2 x 4. it includes the mediator
+      param_pred_y[,1:4] = calc_zoib_par(X_y0_m0, coef_outcome);
+      param_pred_y[,5:8] = calc_zoib_par(X_y0_m1, coef_outcome);
+      param_pred_y[,9:12] = calc_zoib_par(X_y1_m1, coef_outcome);
+      param_pred_y[,13:16] = calc_zoib_par(X_y1_m0, coef_outcome);
+      
+      wt_y = calc_pred(param_pred_y, 4);
+      
+      for(h in 1:sim){
+          int index_y0m0 = categorical_rng(wt_y[1:3,h]);
+          int index_y0m1 = categorical_rng(wt_y[4:6,h]);
+          int index_y1m1 = categorical_rng(wt_y[7:9,h]);
+          int index_y1m0 = categorical_rng(wt_y[10:12,h]);
+
+          if (index_y0m0 == 1){pred_y[h,1] = 0;}
+          else if (index_y0m0 == 2){pred_y[h,1] = 1;}
+          else if (index_y0m0 == 3){pred_y[h,1] = beta_rng(param_pred_y[h,3],param_pred_y[h,4]);}
+
+          if (index_y0m1 == 1){ pred_y[h,2] = 0;}
+          else if (index_y0m1 == 2){pred_y[h,2] = 1;}
+          else if (index_y0m1 == 3){pred_y[h,2] = beta_rng(param_pred_y[h,7],param_pred_y[h,8]);}
+
+          if (index_y1m1 == 1){ pred_y[h,3] = 0;}
+          else if (index_y1m1 == 2){pred_y[h,3] = 1;}
+          else if (index_y1m1 == 3){pred_y[h,3] = beta_rng(param_pred_y[h,11],param_pred_y[h,12]);}
+
+          if (index_y1m0 == 1){ pred_y[h,4] = 0;}
+          else if (index_y1m0 == 2){pred_y[h,4] = 1;}
+          else if (index_y1m0 == 3){pred_y[h,4] = beta_rng(param_pred_y[h,15],param_pred_y[h,16]);}
+      }
+      
+      delta[1] = mean(pred_y[:,2]) - mean(pred_y[:,1]);
+      delta[2] = mean(pred_y[:,3]) - mean(pred_y[:,4]);
+      zeta[1] = mean(pred_y[:,4]) - mean(pred_y[:,1]);
+      zeta[2] = mean(pred_y[:,3]) - mean(pred_y[:,2]);
+      tau = mean(pred_y[:,3]) - mean(pred_y[:,1]);
+
+  }  // end of local variables
+}  //end of generated quantities
+
+')
+
+test_fit <- sampling(stan_zoib, data = jobs_data, seed = num_seed)
+```
+
+## Assessing STAN output
+When assessing STAN output, one of the things that you want to check is whether the chains are converging, and that they are converging to the same area. Some of the recommended convergence checks include monitoring the potential scale reduction (PSR) factor, $\hat R$ statistic, and using visual checks, e.g. traceplots. $\hat R$ evaluates the mixing of the chains by comparing the variation between the chains to the variation within the chains. "The condition of $\hat R$ being 'near' 1 depends on the problem at hand, but we generally have been satisfied with setting 1.1 as a threshold" (Gelman et al., 2004). 
+
+Additionally, since the Markov Chain Monte Carlo (MCMC) does not return independent draws, the simulations within each chain will show some level of autocorrelation. This autocorrelation inceases the uncertainty of the estimation of poesterior quantities. The amount by which this autocrorrelation increases in estimates can be measured by the effective sample size (ESS), $n_{eff}$, which should be large so that it can provide a measure of precision; $n_{eff}$ is the 'effective number of independent simulation draws'.  
+
+```{r assess_stan_output, echo = FALSE}
+extract_fit <- extract(test_fit)
+lapply(extract_fit, dim)
+
+posterior_summary <- as.data.frame(summary(test_fit,  probs = c(0.025, 0.975))$summary)
+
+```
+
+
+### Assess Rhat and Effective Sample Size
+```{r asses_stan_table, echo = FALSE}
+kable(rbind(r_hat = format(round(summary(posterior_summary$Rhat),4), nsmall = 4), n_eff = format(round(summary(posterior_summary$n_eff)), nsmall = 0)), caption = 'Table 1' )  %>%  kable_styling(bootstrap_options = c('striped', 'hover'))
+```
+
+
+### Assess Traceplots
+```{r asses_stan_traceplots, echo = FALSE}
+traceplot(test_fit, 'coef_mediator', ncol = 4)
+traceplot(test_fit, 'coef_outcome', ncol = 4)
+```
+
+
+```{r create_posterior_visuals, include = FALSE, echo = FALSE}
+
+## create posterior summary table
+sep_names <- unlist(lapply(strsplit(sub("\\[", ",", rownames(posterior_summary)),split = "\\,"), `[[`, 1))
+sep_param <- unlist(lapply(strsplit(sub("\\[", ",", rownames(posterior_summary)),split = "\\,"), `[`, 3))
+posterior_table <- as.data.frame(cbind(param = sep_names, specified_param = sep_param, overall_param = rownames(posterior_summary),posterior_summary))
+
+posterior_table$specified_param <- ifelse( is.na(posterior_table$specified_param) & posterior_table$param == 'lp__', 'likelihood',
+                                           ifelse(is.na(posterior_table$specified_param), 'causal effects', 
+                                                 ifelse(posterior_table$specified_param == '1]' & posterior_table$param == 'pred_y','y0m0' ,
+                                                     ifelse(posterior_table$specified_param == '2]' & posterior_table$param == 'pred_y','y0m1' ,
+                                                            ifelse(posterior_table$specified_param == '3]' & posterior_table$param == 'pred_y','y1m1' ,
+                                                                   ifelse(posterior_table$specified_param == '4]' & posterior_table$param == 'pred_y','y1m0' ,
+                                                                          ifelse(posterior_table$specified_param == '1]' & posterior_table$param == 'pred_m','m0' ,
+                                                                                 ifelse(posterior_table$specified_param == '2]' & posterior_table$param == 'pred_m','m1' ,
+                                                                                    ifelse(sep_param == '1]', 'alpha', 
+                                                                                           ifelse(sep_param == '2]','gamma',
+                                                                                                  ifelse(sep_param == '3]', 'mu',
+                                                                                                         ifelse(sep_param == '4]', 'phi', sep_param))))))))))))
+
+posterior_table$specified_param <- as.factor(posterior_table$specified_param)
+posterior_table <- round_df(posterior_table, 4)
+rownames(posterior_table) <- NULL
+
+## check posterior predictions against true data
+ind_t0 <- which(trt == 0)
+ind_t1 <- which(trt == 1)
+
+m0 <- med[ind_t0]
+m1 <- med[ind_t1]
+y0m0 <- y[ind_t0]
+y1m1 <- y[ind_t1]
+
+pred_m_mcmc <- extract_fit$pred_m
+pred_y_mcmc <- extract_fit$pred_y
+
+color_scheme_set('red')
+set.seed(num_seed)
+sm0 <- sample(dim(pred_m_mcmc)[2], length(m0))
+sm1 <- sample(dim(pred_m_mcmc)[2], length(m1))
+sy0 <- sample(dim(pred_y_mcmc)[2], length(y0m0)) 
+sy1 <- sample(dim(pred_y_mcmc)[2], length(y1m1)) 
+
+m0_mean_hist <-  ppc_stat(m0,pred_m_mcmc[,sm0,1], binwidth = .005) + labs(title = 'Mediator (trt = 0)')
+m0_med_hist <- ppc_stat(m0,pred_m_mcmc[,sm0,1], stat = median, binwidth = .005) + labs(title = 'Mediator (trt = 0)')
+m1_mean_hist <- ppc_stat(m1,pred_m_mcmc[,sm1,2], binwidth = .005) + labs(title = 'Mediator (trt = 1)')
+m1_med_hist <- ppc_stat(m1,pred_m_mcmc[,sm1,2], stat = median, binwidth = .005) + labs(title = 'Mediator (trt = 1)')
+
+
+y0m0_mean_hist <- ppc_stat(y0m0,pred_y_mcmc[,sy0,1], binwidth = .009) + labs(title = 'Outcome (trt = 0)')
+y0m0_med_hist <- ppc_stat(y0m0,pred_y_mcmc[,sy0,1], stat = median, binwidth = .004) + labs(title = 'Outcome (trt = 0)')
+y1m1_mean_hist <- ppc_stat(y1m1,pred_y_mcmc[,sy1,3], binwidth = .007) + labs(title = 'Outcome (trt = 1)')
+y1m1_med_hist <- ppc_stat(y1m1,pred_y_mcmc[,sy1,3], stat = median, binwidth = .004) + labs(title = 'Outcome (trt = 1)')
+
+
+m0_dens <- ppc_dens_overlay(m0,pred_m_mcmc[,sm0,1]) + labs(title = 'Mediator (trt = 0)')
+m1_dens <- ppc_dens_overlay(m1,pred_m_mcmc[,sm1,2]) + labs(title = 'Mediator (trt = 1)')
+y0m0_dens <- ppc_dens_overlay(y0m0,pred_y_mcmc[,sy0,1]) + labs(title = 'Outcome (trt = 0)')
+y1m1_dens <- ppc_dens_overlay(y1m1,pred_y_mcmc[,sy1,3]) + labs(title = 'Outcome (trt = 1)')
+
+med_hist <- ggarrange(m0_mean_hist, m0_med_hist, m1_mean_hist, m1_med_hist, ncol = 2, nrow =2)
+out_hist <- ggarrange(y0m0_mean_hist, y0m0_med_hist, y1m1_mean_hist, y1m1_med_hist, ncol = 2, nrow =2)
+dens_plot <- ggarrange(m0_dens,m1_dens,y0m0_dens,y1m1_dens, ncol = 2, nrow =2)
+
+```
+
+
+## Summarizing the Posteriors
+<br />
+```{r visualize_posterior_output, echo = FALSE}
+## results
+kable(posterior_table[posterior_table$param %in% c('coef_mediator', 'coef_outcome') | posterior_table$specified_param == 'causal effects',], align = 'c', row.names = FALSE, caption = 'Table 3') %>%
+  kable_styling( bootstrap_options = c('striped', 'hover', 'condensed')) %>%
+  column_spec(1, bold = T) %>%
+  collapse_rows(columns = 1:2, valign = 'top') %>%
+  scroll_box(width = '800px', height = '300px') 
+```
+
+
+<br />
+```{r visualize_posterior_graphs, echo = FALSE}
+## results
+print(med_hist)
+print(out_hist)
+print(dens_plot)
+```
+
+<br />
+
+##### References
+
+    * Ferrari, S., and Cribari-Neto, F. (2004). "Beta regression for modelling rates and proportions," Journal of Applied Statistics, 31(7), 799-815
+    * Gelman, A., Carlin, J.B., Stern, H.S., and Rubin, D.B. (2004). Bayesian data analysis (2nd ed.)
+    * Imai, K., Keele, L., and Tingley, D. (2010),“A General Approach to Causal Mediation Analysis,”Psychological Methods, 15(4), 309–334
