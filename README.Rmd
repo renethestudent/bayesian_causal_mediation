@@ -3,7 +3,7 @@ title: 'Bayesian Zero- and- One Inflated Beta Regression in Stan with Causal Med
 author: 'Lexi Rene'
 output:   
   github_document:
-    pandoc_args: --webtex=https://ibm.codecogs.com/png.latex?
+    pandoc_args: --webtex=https://latex.codecogs.com/png.latex?
 always_allow_html: yes
 ---
 
@@ -73,14 +73,14 @@ Suppose we use $Y_i$ to represent the measure of depression for the $i^{th}$ sub
 The statistical independence between the treatment and the potential outcome allows us to compute the average causal effect as the observed mean difference between the treatment and control group:
 <center>$$E[Y_i^{A_i=1}-Y_i^{A_i=0}] = E[Y_i^{A_i=1}|A_i = 1] - E[Y_i^{A_i=0}|A_i = 0] \quad (average \;causal \; effect)$$</center>
 
-Under the counterfactual/potential outcome framework, only one potential outcome of $Y_i^{A_i=a, M_i^{A_i=a }$ is observed. Let $Z_i$ be a vector of baseline covariate for each subject $i$ and $\mathscr Z$ be the support of the distribution of $Z_i$; in addition, the support of $M_i$ is $\mathscr{M}$. To identify the effects of treatment and mediation, we assume sequential ignorability, as per Imani et al, by assuming the following two statements of conditional independence hold:
+Under the counterfactual/potential outcome framework, only one potential outcome of $Y_i^{A_i=a, M_i^{A_i=a }$ is observed. Let $Z_i$ be a vector of baseline covariate for each subject $i$ and $\mathcal Z$ be the support of the distribution of $Z_i$; in addition, the support of $M_i$ is $\mathcal{M}$. To identify the effects of treatment and mediation, we assume sequential ignorability, as per Imani et al, by assuming the following two statements of conditional independence hold:
 <br />
 <center>
 $$\Bigl \{ Y_i^{A_i = a', m = M_i^{A_i = a'}}, \; M_i^{A_i=a} \Bigr \} \indep{} A_i|Z_i=z \qquad  (1) \\
 Y_i^{A_i=a', m = M_i^{A_i=a'}} \indep{} M_i|A_i,Z_i = z \qquad (2)$$
 </center>
 
-where $P(A_i=a|Z_i=z) > 0$ and $P(m=M_i^{A_i = a}|A_i=a,Z_i=z) > 0$ for $a = 0, 1$, and, all $z \in \mathscr{Z}$ and $m \in \mathscr{M}$.
+where $P(A_i=a|Z_i=z) > 0$ and $P(m=M_i^{A_i = a}|A_i=a,Z_i=z) > 0$ for $a = 0, 1$, and, all $z \in \mathcal{Z}$ and $m \in \mathcal{M}$.
 
 These ignorability assumptions are made sequentially. The first part of the assumption assumes that given the observed confounders, prior to treatment, the treatment assignment is ignorable. In terms of statistical independence, the observed pre-treatment is independent of the potential outcomes and potential mediators. The second part of sequential ignorability states that the mediator is ignorable given the observed treatment and pre-treatment confounders; meaning that the potential outcome and mediator are unconfounded on the past observations and confounders.  
 

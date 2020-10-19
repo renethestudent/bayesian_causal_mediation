@@ -81,70 +81,70 @@ between two potential outcomes. One potential outcome is realized if the
 subject participates in the training program and the other potential
 outcome is realized if the subject does not participate.
 
-Suppose we use ![Y\_i](https://ibm.codecogs.com/png.latex?Y_i "Y_i") to
-represent the measure of depression for the
-![i^{th}](https://ibm.codecogs.com/png.latex?i%5E%7Bth%7D "i^{th}")
-subject, ![M\_i](https://ibm.codecogs.com/png.latex?M_i "M_i"), the
+Suppose we use ![Y\_i](https://latex.codecogs.com/png.latex?Y_i "Y_i")
+to represent the measure of depression for the
+![i^{th}](https://latex.codecogs.com/png.latex?i%5E%7Bth%7D "i^{th}")
+subject, ![M\_i](https://latex.codecogs.com/png.latex?M_i "M_i"), the
 measure of confidence/self efficiacy in the job search for the
-![i^{th}](https://ibm.codecogs.com/png.latex?i%5E%7Bth%7D "i^{th}")
-subject, and ![A\_i](https://ibm.codecogs.com/png.latex?A_i "A_i"), the
-binary indicator variable for the
-![i^{th}](https://ibm.codecogs.com/png.latex?i%5E%7Bth%7D "i^{th}")
+![i^{th}](https://latex.codecogs.com/png.latex?i%5E%7Bth%7D "i^{th}")
+subject, and ![A\_i](https://latex.codecogs.com/png.latex?A_i "A_i"),
+the binary indicator variable for the
+![i^{th}](https://latex.codecogs.com/png.latex?i%5E%7Bth%7D "i^{th}")
 subject’s treatment/participation in the JOBS II training program;
-![A\_i](https://ibm.codecogs.com/png.latex?A_i "A_i") takes on the
-values of ![a= 1](https://ibm.codecogs.com/png.latex?a%3D%201 "a= 1")
+![A\_i](https://latex.codecogs.com/png.latex?A_i "A_i") takes on the
+values of ![a= 1](https://latex.codecogs.com/png.latex?a%3D%201 "a= 1")
 (participation in the training) or ![a
-= 0](https://ibm.codecogs.com/png.latex?a%20%3D%200 "a = 0")
+= 0](https://latex.codecogs.com/png.latex?a%20%3D%200 "a = 0")
 (otherwise). The depression level of subject
-![i](https://ibm.codecogs.com/png.latex?i "i") is independent of subject
-![j](https://ibm.codecogs.com/png.latex?j "j") (![i \\ne
-j](https://ibm.codecogs.com/png.latex?i%20%5Cne%20j "i \\ne j")). In
+![i](https://latex.codecogs.com/png.latex?i "i") is independent of
+subject ![j](https://latex.codecogs.com/png.latex?j "j") (![i \\ne
+j](https://latex.codecogs.com/png.latex?i%20%5Cne%20j "i \\ne j")). In
 addition, since the treatment in the JOBS II study is randomized,
-![A\_i](https://ibm.codecogs.com/png.latex?A_i "A_i") is statistically
+![A\_i](https://latex.codecogs.com/png.latex?A_i "A_i") is statistically
 independent of the potential outcomes; we can write this as
 ![\\left(Y\_i^{A\_i = 0},Y\_i^{A\_i = 1}\\right) \\perp \\\!\\\!\\\!
 \\perp{}
-A\_i](https://ibm.codecogs.com/png.latex?%5Cleft%28Y_i%5E%7BA_i%20%3D%200%7D%2CY_i%5E%7BA_i%20%3D%201%7D%5Cright%29%20%5Cperp%20%5C%21%5C%21%5C%21%20%5Cperp%7B%7D%20A_i
+A\_i](https://latex.codecogs.com/png.latex?%5Cleft%28Y_i%5E%7BA_i%20%3D%200%7D%2CY_i%5E%7BA_i%20%3D%201%7D%5Cright%29%20%5Cperp%20%5C%21%5C%21%5C%21%20%5Cperp%7B%7D%20A_i
 "\\left(Y_i^{A_i = 0},Y_i^{A_i = 1}\\right) \\perp \\!\\!\\! \\perp{} A_i").
 The observed value for the depression level can be denoted by
-![Y\_i](https://ibm.codecogs.com/png.latex?Y_i "Y_i"), where ![Y\_i =
-Y\_i^{A\_i}](https://ibm.codecogs.com/png.latex?Y_i%20%3D%20Y_i%5E%7BA_i%7D
+![Y\_i](https://latex.codecogs.com/png.latex?Y_i "Y_i"), where ![Y\_i =
+Y\_i^{A\_i}](https://latex.codecogs.com/png.latex?Y_i%20%3D%20Y_i%5E%7BA_i%7D
 "Y_i = Y_i^{A_i}"), which can result in two potential values. For
 example,
-![Y\_i^{A\_i=1}](https://ibm.codecogs.com/png.latex?Y_i%5E%7BA_i%3D1%7D
+![Y\_i^{A\_i=1}](https://latex.codecogs.com/png.latex?Y_i%5E%7BA_i%3D1%7D
 "Y_i^{A_i=1}") would be the observed depression level for subject
-![i](https://ibm.codecogs.com/png.latex?i "i"), if subject
-![i](https://ibm.codecogs.com/png.latex?i "i") actually participated in
-the training program; in this case, the unobserved outcome for subject
-![i](https://ibm.codecogs.com/png.latex?i "i") is the level of
+![i](https://latex.codecogs.com/png.latex?i "i"), if subject
+![i](https://latex.codecogs.com/png.latex?i "i") actually participated
+in the training program; in this case, the unobserved outcome for
+subject ![i](https://latex.codecogs.com/png.latex?i "i") is the level of
 depression if they did not participate in the training program. We will
 use ![Y\_i^{A\_i =
-a}](https://ibm.codecogs.com/png.latex?Y_i%5E%7BA_i%20%3D%20a%7D
+a}](https://latex.codecogs.com/png.latex?Y_i%5E%7BA_i%20%3D%20a%7D
 "Y_i^{A_i = a}") to represent the potential level of depression that
 would result under the treatment status
-![a](https://ibm.codecogs.com/png.latex?a "a") for subject
-![i](https://ibm.codecogs.com/png.latex?i "i"). In addition, in causal
+![a](https://latex.codecogs.com/png.latex?a "a") for subject
+![i](https://latex.codecogs.com/png.latex?i "i"). In addition, in causal
 mediation analysis, the potential outcome also depends on the mediator.
 In the context of this study, this implies that the level of job search
 self-efficacy can be affected by participation in the program, which can
 be represented by
-![M\_i^{A\_i=a}](https://ibm.codecogs.com/png.latex?M_i%5E%7BA_i%3Da%7D
+![M\_i^{A\_i=a}](https://latex.codecogs.com/png.latex?M_i%5E%7BA_i%3Da%7D
 "M_i^{A_i=a}"); which also has two potential values
-![M\_i^{A\_i=0}](https://ibm.codecogs.com/png.latex?M_i%5E%7BA_i%3D0%7D
+![M\_i^{A\_i=0}](https://latex.codecogs.com/png.latex?M_i%5E%7BA_i%3D0%7D
 "M_i^{A_i=0}") and
-![M\_i^{A\_i=1}](https://ibm.codecogs.com/png.latex?M_i%5E%7BA_i%3D1%7D
+![M\_i^{A\_i=1}](https://latex.codecogs.com/png.latex?M_i%5E%7BA_i%3D1%7D
 "M_i^{A_i=1}"). The potential mediator value of subject
-![i](https://ibm.codecogs.com/png.latex?i "i") are independent of the
-treatment status for subject ![j](https://ibm.codecogs.com/png.latex?j
-"j") (![i \\ne j](https://ibm.codecogs.com/png.latex?i%20%5Cne%20j
+![i](https://latex.codecogs.com/png.latex?i "i") are independent of the
+treatment status for subject ![j](https://latex.codecogs.com/png.latex?j
+"j") (![i \\ne j](https://latex.codecogs.com/png.latex?i%20%5Cne%20j
 "i \\ne j")). Therefore, we will update the potential outcome to be
 denoted as ![Y\_i^{A\_i, M\_i^{A\_i
-}}](https://ibm.codecogs.com/png.latex?Y_i%5E%7BA_i%2C%20M_i%5E%7BA_i%20%7D%7D
+}}](https://latex.codecogs.com/png.latex?Y_i%5E%7BA_i%2C%20M_i%5E%7BA_i%20%7D%7D
 "Y_i^{A_i, M_i^{A_i }}") and also note that the potential outcome for
-subject ![i](https://ibm.codecogs.com/png.latex?i "i") is indepedent of
-both the treatment status and the mediator value of subject
-![j](https://ibm.codecogs.com/png.latex?j "j") (![i \\ne
-j](https://ibm.codecogs.com/png.latex?i%20%5Cne%20j "i \\ne j")).
+subject ![i](https://latex.codecogs.com/png.latex?i "i") is indepedent
+of both the treatment status and the mediator value of subject
+![j](https://latex.codecogs.com/png.latex?j "j") (![i \\ne
+j](https://latex.codecogs.com/png.latex?i%20%5Cne%20j "i \\ne j")).
 
 ### Causal Mediation Effects
 
@@ -157,24 +157,25 @@ mean difference between the treatment and control group:
   
 ![E\[Y\_i^{A\_i=1}-Y\_i^{A\_i=0}\] = E\[Y\_i^{A\_i=1}|A\_i = 1\] -
 E\[Y\_i^{A\_i=0}|A\_i = 0\] \\quad (average \\;causal \\;
-effect)](https://ibm.codecogs.com/png.latex?E%5BY_i%5E%7BA_i%3D1%7D-Y_i%5E%7BA_i%3D0%7D%5D%20%3D%20E%5BY_i%5E%7BA_i%3D1%7D%7CA_i%20%3D%201%5D%20-%20E%5BY_i%5E%7BA_i%3D0%7D%7CA_i%20%3D%200%5D%20%5Cquad%20%28average%20%5C%3Bcausal%20%5C%3B%20effect%29
+effect)](https://latex.codecogs.com/png.latex?E%5BY_i%5E%7BA_i%3D1%7D-Y_i%5E%7BA_i%3D0%7D%5D%20%3D%20E%5BY_i%5E%7BA_i%3D1%7D%7CA_i%20%3D%201%5D%20-%20E%5BY_i%5E%7BA_i%3D0%7D%7CA_i%20%3D%200%5D%20%5Cquad%20%28average%20%5C%3Bcausal%20%5C%3B%20effect%29
 "E[Y_i^{A_i=1}-Y_i^{A_i=0}] = E[Y_i^{A_i=1}|A_i = 1] - E[Y_i^{A_i=0}|A_i = 0] \\quad (average \\;causal \\; effect)")  
 
 </center>
 
 Under the counterfactual/potential outcome framework, only one potential
 outcome of ![Y\_i^{A\_i=a, M\_i^{A\_i=a
-}](https://ibm.codecogs.com/png.latex?Y_i%5E%7BA_i%3Da%2C%20M_i%5E%7BA_i%3Da%20%7D
+}](https://latex.codecogs.com/png.latex?Y_i%5E%7BA_i%3Da%2C%20M_i%5E%7BA_i%3Da%20%7D
 "Y_i^{A_i=a, M_i^{A_i=a }") is observed. Let
-![Z\_i](https://ibm.codecogs.com/png.latex?Z_i "Z_i") be a vector of
+![Z\_i](https://latex.codecogs.com/png.latex?Z_i "Z_i") be a vector of
 baseline covariate for each subject
-![i](https://ibm.codecogs.com/png.latex?i "i") and ![\\mathscr
-Z](https://ibm.codecogs.com/png.latex?%5Cmathscr%20Z "\\mathscr Z") be
+![i](https://latex.codecogs.com/png.latex?i "i") and ![\\mathcal
+Z](https://latex.codecogs.com/png.latex?%5Cmathcal%20Z "\\mathcal Z") be
 the support of the distribution of
-![Z\_i](https://ibm.codecogs.com/png.latex?Z_i "Z_i"); in addition, the
-support of ![M\_i](https://ibm.codecogs.com/png.latex?M_i "M_i") is
-![\\mathscr{M}](https://ibm.codecogs.com/png.latex?%5Cmathscr%7BM%7D
-"\\mathscr{M}"). To identify the effects of treatment and mediation, we
+![Z\_i](https://latex.codecogs.com/png.latex?Z_i "Z_i"); in addition,
+the support of ![M\_i](https://latex.codecogs.com/png.latex?M_i "M_i")
+is
+![\\mathcal{M}](https://latex.codecogs.com/png.latex?%5Cmathcal%7BM%7D
+"\\mathcal{M}"). To identify the effects of treatment and mediation, we
 assume sequential ignorability, as per Imani et al, by assuming the
 following two statements of conditional independence hold: <br />
 
@@ -182,26 +183,26 @@ following two statements of conditional independence hold: <br />
 
   
 ![\\Bigl \\{ Y\_i^{A\_i = a', m = M\_i^{A\_i = a'}}, \\; M\_i^{A\_i=a}
-\\Bigr \\} \\perp \\\!\\\!\\\! \\perp{} A\_i|Z\_i=z \\qquad (1) \\\\
-Y\_i^{A\_i=a', m = M\_i^{A\_i=a'}} \\perp \\\!\\\!\\\! \\perp{}
+\\Bigr \\} \\perp \\\!\\\!\\\! \\perp{} A\_i|Z\_i=z \\qquad (1)
+\\\\&#10;Y\_i^{A\_i=a', m = M\_i^{A\_i=a'}} \\perp \\\!\\\!\\\! \\perp{}
 M\_i|A\_i,Z\_i = z \\qquad
-(2)](https://ibm.codecogs.com/png.latex?%5CBigl%20%5C%7B%20Y_i%5E%7BA_i%20%3D%20a%27%2C%20m%20%3D%20M_i%5E%7BA_i%20%3D%20a%27%7D%7D%2C%20%5C%3B%20M_i%5E%7BA_i%3Da%7D%20%5CBigr%20%5C%7D%20%5Cperp%20%5C%21%5C%21%5C%21%20%5Cperp%7B%7D%20A_i%7CZ_i%3Dz%20%5Cqquad%20%20%281%29%20%5C%5C%0AY_i%5E%7BA_i%3Da%27%2C%20m%20%3D%20M_i%5E%7BA_i%3Da%27%7D%7D%20%5Cperp%20%5C%21%5C%21%5C%21%20%5Cperp%7B%7D%20M_i%7CA_i%2CZ_i%20%3D%20z%20%5Cqquad%20%282%29
+(2)](https://latex.codecogs.com/png.latex?%5CBigl%20%5C%7B%20Y_i%5E%7BA_i%20%3D%20a%27%2C%20m%20%3D%20M_i%5E%7BA_i%20%3D%20a%27%7D%7D%2C%20%5C%3B%20M_i%5E%7BA_i%3Da%7D%20%5CBigr%20%5C%7D%20%5Cperp%20%5C%21%5C%21%5C%21%20%5Cperp%7B%7D%20A_i%7CZ_i%3Dz%20%5Cqquad%20%20%281%29%20%5C%5C%0AY_i%5E%7BA_i%3Da%27%2C%20m%20%3D%20M_i%5E%7BA_i%3Da%27%7D%7D%20%5Cperp%20%5C%21%5C%21%5C%21%20%5Cperp%7B%7D%20M_i%7CA_i%2CZ_i%20%3D%20z%20%5Cqquad%20%282%29
 "\\Bigl \\{ Y_i^{A_i = a', m = M_i^{A_i = a'}}, \\; M_i^{A_i=a} \\Bigr \\} \\perp \\!\\!\\! \\perp{} A_i|Z_i=z \\qquad  (1) \\\\
 Y_i^{A_i=a', m = M_i^{A_i=a'}} \\perp \\!\\!\\! \\perp{} M_i|A_i,Z_i = z \\qquad (2)")  
 
 </center>
 
 where ![P(A\_i=a|Z\_i=z)
-\> 0](https://ibm.codecogs.com/png.latex?P%28A_i%3Da%7CZ_i%3Dz%29%20%3E%200
+\> 0](https://latex.codecogs.com/png.latex?P%28A_i%3Da%7CZ_i%3Dz%29%20%3E%200
 "P(A_i=a|Z_i=z) \> 0") and ![P(m=M\_i^{A\_i = a}|A\_i=a,Z\_i=z)
-\> 0](https://ibm.codecogs.com/png.latex?P%28m%3DM_i%5E%7BA_i%20%3D%20a%7D%7CA_i%3Da%2CZ_i%3Dz%29%20%3E%200
+\> 0](https://latex.codecogs.com/png.latex?P%28m%3DM_i%5E%7BA_i%20%3D%20a%7D%7CA_i%3Da%2CZ_i%3Dz%29%20%3E%200
 "P(m=M_i^{A_i = a}|A_i=a,Z_i=z) \> 0") for ![a
-= 0, 1](https://ibm.codecogs.com/png.latex?a%20%3D%200%2C%201
+= 0, 1](https://latex.codecogs.com/png.latex?a%20%3D%200%2C%201
 "a = 0, 1"), and, all ![z \\in
-\\mathscr{Z}](https://ibm.codecogs.com/png.latex?z%20%5Cin%20%5Cmathscr%7BZ%7D
-"z \\in \\mathscr{Z}") and ![m \\in
-\\mathscr{M}](https://ibm.codecogs.com/png.latex?m%20%5Cin%20%5Cmathscr%7BM%7D
-"m \\in \\mathscr{M}").
+\\mathcal{Z}](https://latex.codecogs.com/png.latex?z%20%5Cin%20%5Cmathcal%7BZ%7D
+"z \\in \\mathcal{Z}") and ![m \\in
+\\mathcal{M}](https://latex.codecogs.com/png.latex?m%20%5Cin%20%5Cmathcal%7BM%7D
+"m \\in \\mathcal{M}").
 
 These ignorability assumptions are made sequentially. The first part of
 the assumption assumes that given the observed confounders, prior to
@@ -216,7 +217,7 @@ and confounders.
 The indirect effect of the treatment on the outcome, through the
 mediating variable is defined as the causal mediation effect (Imai et
 al., 2010), for ![a
-= 0, 1](https://ibm.codecogs.com/png.latex?a%20%3D%200%2C%201
+= 0, 1](https://latex.codecogs.com/png.latex?a%20%3D%200%2C%201
 "a = 0, 1"):
 
 <center>
@@ -225,14 +226,14 @@ al., 2010), for ![a
 ![\\quad \\delta\_i^{A\_i=a} \\equiv Y\_i^{A\_i=a, M\_i^{A\_i=1 }} -
 Y\_i^{A\_i=a, M\_i^{A\_i=0 }} \\\\ (causal \\; mediation/ natural\\;
 indirect \\;
-effect)](https://ibm.codecogs.com/png.latex?%5Cquad%20%5Cdelta_i%5E%7BA_i%3Da%7D%20%5Cequiv%20Y_i%5E%7BA_i%3Da%2C%20M_i%5E%7BA_i%3D1%20%7D%7D%20-%20Y_i%5E%7BA_i%3Da%2C%20M_i%5E%7BA_i%3D0%20%7D%7D%20%20%5C%5C%20%28causal%20%5C%3B%20mediation%2F%20natural%5C%3B%20indirect%20%5C%3B%20effect%29
+effect)](https://latex.codecogs.com/png.latex?%5Cquad%20%5Cdelta_i%5E%7BA_i%3Da%7D%20%5Cequiv%20Y_i%5E%7BA_i%3Da%2C%20M_i%5E%7BA_i%3D1%20%7D%7D%20-%20Y_i%5E%7BA_i%3Da%2C%20M_i%5E%7BA_i%3D0%20%7D%7D%20%20%5C%5C%20%28causal%20%5C%3B%20mediation%2F%20natural%5C%3B%20indirect%20%5C%3B%20effect%29
 "\\quad \\delta_i^{A_i=a} \\equiv Y_i^{A_i=a, M_i^{A_i=1 }} - Y_i^{A_i=a, M_i^{A_i=0 }}  \\\\ (causal \\; mediation/ natural\\; indirect \\; effect)")  
 
 </center>
 
 The following definitions are defined as the effect of the treatment
 ![(a
-= 0, 1)](https://ibm.codecogs.com/png.latex?%28a%20%3D%200%2C%201%29
+= 0, 1)](https://latex.codecogs.com/png.latex?%28a%20%3D%200%2C%201%29
 "(a = 0, 1)"), on the outcome, through the mediation variable:
 
 The average causal mediation effect is defined by:
@@ -241,9 +242,9 @@ The average causal mediation effect is defined by:
 
   
 ![\\qquad \\overline{\\delta^{A=a}} \\equiv E\\left\[Y\_i^{A\_i=a,
-M\_i^{A\_i=1 }} - Y\_i^{A\_i=a, M\_i^{A\_i=0 }}\\right\] \\\\ 
-(average \\; causal \\; mediation/ natural\\; indirect \\;
-effect)](https://ibm.codecogs.com/png.latex?%5Cqquad%20%5Coverline%7B%5Cdelta%5E%7BA%3Da%7D%7D%20%5Cequiv%20E%5Cleft%5BY_i%5E%7BA_i%3Da%2C%20M_i%5E%7BA_i%3D1%20%7D%7D%20-%20Y_i%5E%7BA_i%3Da%2C%20M_i%5E%7BA_i%3D0%20%7D%7D%5Cright%5D%20%20%5C%5C%20%0A%28average%20%5C%3B%20causal%20%5C%3B%20mediation%2F%20natural%5C%3B%20indirect%20%5C%3B%20effect%29
+M\_i^{A\_i=1 }} - Y\_i^{A\_i=a, M\_i^{A\_i=0 }}\\right\] \\\\
+&#10;(average \\; causal \\; mediation/ natural\\; indirect \\;
+effect)](https://latex.codecogs.com/png.latex?%5Cqquad%20%5Coverline%7B%5Cdelta%5E%7BA%3Da%7D%7D%20%5Cequiv%20E%5Cleft%5BY_i%5E%7BA_i%3Da%2C%20M_i%5E%7BA_i%3D1%20%7D%7D%20-%20Y_i%5E%7BA_i%3Da%2C%20M_i%5E%7BA_i%3D0%20%7D%7D%5Cright%5D%20%20%5C%5C%20%0A%28average%20%5C%3B%20causal%20%5C%3B%20mediation%2F%20natural%5C%3B%20indirect%20%5C%3B%20effect%29
 "\\qquad \\overline{\\delta^{A=a}} \\equiv E\\left[Y_i^{A_i=a, M_i^{A_i=1 }} - Y_i^{A_i=a, M_i^{A_i=0 }}\\right]  \\\\ 
 (average \\; causal \\; mediation/ natural\\; indirect \\; effect)")  
 
@@ -255,9 +256,8 @@ The direct effect is defined by:
 
   
 ![\\zeta\_i^{A\_i=a} \\equiv Y\_i^{A\_i=1, M\_i^{A\_i=a }} -
-Y\_i^{A\_i=0, M\_i^{A\_i=a }} \\\\
-\\qquad (natural\\; direct \\;
-effect)](https://ibm.codecogs.com/png.latex?%5Czeta_i%5E%7BA_i%3Da%7D%20%5Cequiv%20Y_i%5E%7BA_i%3D1%2C%20M_i%5E%7BA_i%3Da%20%7D%7D%20-%20Y_i%5E%7BA_i%3D0%2C%20M_i%5E%7BA_i%3Da%20%7D%7D%20%20%5C%5C%0A%5Cqquad%20%28natural%5C%3B%20direct%20%5C%3B%20effect%29
+Y\_i^{A\_i=0, M\_i^{A\_i=a }} \\\\&#10;\\qquad (natural\\; direct \\;
+effect)](https://latex.codecogs.com/png.latex?%5Czeta_i%5E%7BA_i%3Da%7D%20%5Cequiv%20Y_i%5E%7BA_i%3D1%2C%20M_i%5E%7BA_i%3Da%20%7D%7D%20-%20Y_i%5E%7BA_i%3D0%2C%20M_i%5E%7BA_i%3Da%20%7D%7D%20%20%5C%5C%0A%5Cqquad%20%28natural%5C%3B%20direct%20%5C%3B%20effect%29
 "\\zeta_i^{A_i=a} \\equiv Y_i^{A_i=1, M_i^{A_i=a }} - Y_i^{A_i=0, M_i^{A_i=a }}  \\\\
 \\qquad (natural\\; direct \\; effect)")  
 
@@ -269,9 +269,9 @@ The average direct effect is defined by:
 
   
 ![\\overline{\\zeta^{A=a}} \\equiv E\\left\[Y\_i^{A\_i=1, M\_i^{A\_i=a
-}} - Y\_i^{A\_i=0, M\_i^{A\_i=a }}\\right\] \\\\ 
-\\qquad (average\\; natural\\; direct \\;
-effect)](https://ibm.codecogs.com/png.latex?%5Coverline%7B%5Czeta%5E%7BA%3Da%7D%7D%20%5Cequiv%20E%5Cleft%5BY_i%5E%7BA_i%3D1%2C%20M_i%5E%7BA_i%3Da%20%7D%7D%20-%20Y_i%5E%7BA_i%3D0%2C%20M_i%5E%7BA_i%3Da%20%7D%7D%5Cright%5D%20%20%5C%5C%20%0A%5Cqquad%20%28average%5C%3B%20natural%5C%3B%20direct%20%5C%3B%20effect%29
+}} - Y\_i^{A\_i=0, M\_i^{A\_i=a }}\\right\] \\\\ &#10;\\qquad
+(average\\; natural\\; direct \\;
+effect)](https://latex.codecogs.com/png.latex?%5Coverline%7B%5Czeta%5E%7BA%3Da%7D%7D%20%5Cequiv%20E%5Cleft%5BY_i%5E%7BA_i%3D1%2C%20M_i%5E%7BA_i%3Da%20%7D%7D%20-%20Y_i%5E%7BA_i%3D0%2C%20M_i%5E%7BA_i%3Da%20%7D%7D%5Cright%5D%20%20%5C%5C%20%0A%5Cqquad%20%28average%5C%3B%20natural%5C%3B%20direct%20%5C%3B%20effect%29
 "\\overline{\\zeta^{A=a}} \\equiv E\\left[Y_i^{A_i=1, M_i^{A_i=a }} - Y_i^{A_i=0, M_i^{A_i=a }}\\right]  \\\\ 
 \\qquad (average\\; natural\\; direct \\; effect)")  
 
@@ -283,9 +283,8 @@ The total effect is defined by:
 
   
 ![\\tau\_i \\equiv Y\_i^{A\_i=1, M\_i^{A\_i=1 }} - Y\_i^{A\_i=0,
-M\_i^{A\_i=0 }} \\\\
-\\qquad (total \\;
-effect)](https://ibm.codecogs.com/png.latex?%5Ctau_i%20%5Cequiv%20Y_i%5E%7BA_i%3D1%2C%20M_i%5E%7BA_i%3D1%20%7D%7D%20-%20Y_i%5E%7BA_i%3D0%2C%20M_i%5E%7BA_i%3D0%20%7D%7D%20%20%5C%5C%0A%5Cqquad%20%28total%20%5C%3B%20effect%29
+M\_i^{A\_i=0 }} \\\\&#10;\\qquad (total \\;
+effect)](https://latex.codecogs.com/png.latex?%5Ctau_i%20%5Cequiv%20Y_i%5E%7BA_i%3D1%2C%20M_i%5E%7BA_i%3D1%20%7D%7D%20-%20Y_i%5E%7BA_i%3D0%2C%20M_i%5E%7BA_i%3D0%20%7D%7D%20%20%5C%5C%0A%5Cqquad%20%28total%20%5C%3B%20effect%29
 "\\tau_i \\equiv Y_i^{A_i=1, M_i^{A_i=1 }} - Y_i^{A_i=0, M_i^{A_i=0 }}  \\\\
 \\qquad (total \\; effect)")  
 
@@ -297,17 +296,17 @@ Lastly, the average total effect is defined by:
 
   
 ![\\overline{\\tau} \\equiv E\\left\[Y\_i^{A\_i=1, M\_i^{A\_i=1 }} -
-Y\_i^{A\_i=0, M\_i^{A\_i=0 }}\\right\] \\\\ 
-\\qquad (average \\; total \\;
-effect)](https://ibm.codecogs.com/png.latex?%5Coverline%7B%5Ctau%7D%20%5Cequiv%20E%5Cleft%5BY_i%5E%7BA_i%3D1%2C%20M_i%5E%7BA_i%3D1%20%7D%7D%20-%20Y_i%5E%7BA_i%3D0%2C%20M_i%5E%7BA_i%3D0%20%7D%7D%5Cright%5D%20%20%5C%5C%20%0A%5Cqquad%20%28average%20%5C%3B%20total%20%5C%3B%20effect%29
+Y\_i^{A\_i=0, M\_i^{A\_i=0 }}\\right\] \\\\ &#10;\\qquad (average \\;
+total \\;
+effect)](https://latex.codecogs.com/png.latex?%5Coverline%7B%5Ctau%7D%20%5Cequiv%20E%5Cleft%5BY_i%5E%7BA_i%3D1%2C%20M_i%5E%7BA_i%3D1%20%7D%7D%20-%20Y_i%5E%7BA_i%3D0%2C%20M_i%5E%7BA_i%3D0%20%7D%7D%5Cright%5D%20%20%5C%5C%20%0A%5Cqquad%20%28average%20%5C%3B%20total%20%5C%3B%20effect%29
 "\\overline{\\tau} \\equiv E\\left[Y_i^{A_i=1, M_i^{A_i=1 }} - Y_i^{A_i=0, M_i^{A_i=0 }}\\right]  \\\\ 
 \\qquad (average \\; total \\; effect)")  
 
 </center>
 
 Under the assumptions from
-![(1)](https://ibm.codecogs.com/png.latex?%281%29 "(1)") and
-![(2)](https://ibm.codecogs.com/png.latex?%282%29 "(2)"), Imai et
+![(1)](https://latex.codecogs.com/png.latex?%281%29 "(1)") and
+![(2)](https://latex.codecogs.com/png.latex?%282%29 "(2)"), Imai et
 al. then showed that the distribution of the potential outcomes is
 nonparametrically identified:
 
@@ -318,7 +317,7 @@ nonparametrically identified:
 \\right) = \\int\_M f(Y\_i|M\_i = m, A\_i = a, Z\_i =
 z)dF\_{M\_i}(m|A\_i=a',Z\_i=z) \\quad x \\in X; \\; a,a' = 0,1 \\qquad
 (3)
-\\end{align\*}](https://ibm.codecogs.com/png.latex?%5Cbegin%7Balign%2A%7D%20f%20%5Cleft%28%20Y_i%5E%7BA_i%2C%20M_i%5E%7BA_i%3D%20a%27%7D%7D%20%7CZ_i%20%3D%20z%20%5Cright%29%20%3D%20%5Cint_M%20f%28Y_i%7CM_i%20%3D%20m%2C%20A_i%20%3D%20a%2C%20Z_i%20%3D%20z%29dF_%7BM_i%7D%28m%7CA_i%3Da%27%2CZ_i%3Dz%29%20%5Cquad%20x%20%5Cin%20X%3B%20%5C%3B%20a%2Ca%27%20%3D%200%2C1%20%5Cqquad%20%283%29%20%5Cend%7Balign%2A%7D
+\\end{align\*}](https://latex.codecogs.com/png.latex?%5Cbegin%7Balign%2A%7D%20f%20%5Cleft%28%20Y_i%5E%7BA_i%2C%20M_i%5E%7BA_i%3D%20a%27%7D%7D%20%7CZ_i%20%3D%20z%20%5Cright%29%20%3D%20%5Cint_M%20f%28Y_i%7CM_i%20%3D%20m%2C%20A_i%20%3D%20a%2C%20Z_i%20%3D%20z%29dF_%7BM_i%7D%28m%7CA_i%3Da%27%2CZ_i%3Dz%29%20%5Cquad%20x%20%5Cin%20X%3B%20%5C%3B%20a%2Ca%27%20%3D%200%2C1%20%5Cqquad%20%283%29%20%5Cend%7Balign%2A%7D
 "\\begin{align*} f \\left( Y_i^{A_i, M_i^{A_i= a'}} |Z_i = z \\right) = \\int_M f(Y_i|M_i = m, A_i = a, Z_i = z)dF_{M_i}(m|A_i=a',Z_i=z) \\quad x \\in X; \\; a,a' = 0,1 \\qquad (3) \\end{align*}")  
 
 </center>
@@ -331,9 +330,9 @@ that we are unable to observe.
 #### Densities
 
 The density of a random variable
-![R](https://ibm.codecogs.com/png.latex?R "R") with a beta distribution,
-where ![0 \< r
-\< 1](https://ibm.codecogs.com/png.latex?0%20%3C%20r%20%3C%201
+![R](https://latex.codecogs.com/png.latex?R "R") with a beta
+distribution, where ![0 \< r
+\< 1](https://latex.codecogs.com/png.latex?0%20%3C%20r%20%3C%201
 "0 \< r \< 1"), can be reparametrized (Ferrari & Cribari-Neto 2004) to
 be defined as:
 
@@ -342,32 +341,34 @@ be defined as:
   
 ![f\_{beta}(r;\\mu,\\phi) =
 \\frac{\\Gamma(\\phi)}{\\Gamma(\\mu\\phi)\\Gamma((1-\\mu)\\phi)}r^{\\mu\\phi}(1-r)^{(1-\\mu)\\phi-1}
-\\quad(6)](https://ibm.codecogs.com/png.latex?f_%7Bbeta%7D%28r%3B%5Cmu%2C%5Cphi%29%20%3D%20%5Cfrac%7B%5CGamma%28%5Cphi%29%7D%7B%5CGamma%28%5Cmu%5Cphi%29%5CGamma%28%281-%5Cmu%29%5Cphi%29%7Dr%5E%7B%5Cmu%5Cphi%7D%281-r%29%5E%7B%281-%5Cmu%29%5Cphi-1%7D%20%5Cquad%286%29
+\\quad(6)](https://latex.codecogs.com/png.latex?f_%7Bbeta%7D%28r%3B%5Cmu%2C%5Cphi%29%20%3D%20%5Cfrac%7B%5CGamma%28%5Cphi%29%7D%7B%5CGamma%28%5Cmu%5Cphi%29%5CGamma%28%281-%5Cmu%29%5Cphi%29%7Dr%5E%7B%5Cmu%5Cphi%7D%281-r%29%5E%7B%281-%5Cmu%29%5Cphi-1%7D%20%5Cquad%286%29
 "f_{beta}(r;\\mu,\\phi) = \\frac{\\Gamma(\\phi)}{\\Gamma(\\mu\\phi)\\Gamma((1-\\mu)\\phi)}r^{\\mu\\phi}(1-r)^{(1-\\mu)\\phi-1} \\quad(6)")  
 
 </center>
 
-<em> Note for ![(6)](https://ibm.codecogs.com/png.latex?%286%29 "(6)"):
-![\\Gamma(\\cdot)](https://ibm.codecogs.com/png.latex?%5CGamma%28%5Ccdot%29
+<em> Note for ![(6)](https://latex.codecogs.com/png.latex?%286%29
+"(6)"):
+![\\Gamma(\\cdot)](https://latex.codecogs.com/png.latex?%5CGamma%28%5Ccdot%29
 "\\Gamma(\\cdot)") denotes the gamma function, ![E\[R\] =
-\\mu](https://ibm.codecogs.com/png.latex?E%5BR%5D%20%3D%20%5Cmu
+\\mu](https://latex.codecogs.com/png.latex?E%5BR%5D%20%3D%20%5Cmu
 "E[R] = \\mu"), and ![Var(R) =
-\\frac{\\mu(1-\\mu)}{\\phi+1}](https://ibm.codecogs.com/png.latex?Var%28R%29%20%3D%20%5Cfrac%7B%5Cmu%281-%5Cmu%29%7D%7B%5Cphi%2B1%7D
+\\frac{\\mu(1-\\mu)}{\\phi+1}](https://latex.codecogs.com/png.latex?Var%28R%29%20%3D%20%5Cfrac%7B%5Cmu%281-%5Cmu%29%7D%7B%5Cphi%2B1%7D
 "Var(R) = \\frac{\\mu(1-\\mu)}{\\phi+1}");
-![\\phi](https://ibm.codecogs.com/png.latex?%5Cphi "\\phi") is a
+![\\phi](https://latex.codecogs.com/png.latex?%5Cphi "\\phi") is a
 precision parameter, where for a fixed
-![\\mu](https://ibm.codecogs.com/png.latex?%5Cmu "\\mu"), there is an
+![\\mu](https://latex.codecogs.com/png.latex?%5Cmu "\\mu"), there is an
 inverse relationship between
-![\\phi](https://ibm.codecogs.com/png.latex?%5Cphi "\\phi") and
-![Var(R)](https://ibm.codecogs.com/png.latex?Var%28R%29 "Var(R)").</em>
+![\\phi](https://latex.codecogs.com/png.latex?%5Cphi "\\phi") and
+![Var(R)](https://latex.codecogs.com/png.latex?Var%28R%29
+"Var(R)").</em>
 
-Using ![(3)](https://ibm.codecogs.com/png.latex?%283%29 "(3)") we
+Using ![(3)](https://latex.codecogs.com/png.latex?%283%29 "(3)") we
 further assume the following regression models for both the response
-variables, `depress2`, ![y](https://ibm.codecogs.com/png.latex?y "y"),
-and `job_seek`, ![m](https://ibm.codecogs.com/png.latex?m "m"), to
+variables, `depress2`, ![y](https://latex.codecogs.com/png.latex?y "y"),
+and `job_seek`, ![m](https://latex.codecogs.com/png.latex?m "m"), to
 follow a zero-one inflated beta (ZOIB) distribution, as they lie within
 the bounds \[0,1\]. The cumulative distribution function of the random
-variable ![R](https://ibm.codecogs.com/png.latex?R "R") under a ZOIB
+variable ![R](https://latex.codecogs.com/png.latex?R "R") under a ZOIB
 distribution is:
 
 <center>
@@ -375,26 +376,23 @@ distribution is:
 ![\\begin{align\*} F\_{ZOIB}(R;\\alpha, \\gamma, \\mu, \\phi) = \\alpha
 \\; \\text{I}(r=0) + (1-\\alpha)\\gamma \\; \\text{I}(r = 1) +
 (1-\\alpha)(1-\\gamma)F\_{beta}(R;\\mu,\\phi)
-\\end{align\*}](https://ibm.codecogs.com/png.latex?%5Cbegin%7Balign%2A%7D%20F_%7BZOIB%7D%28R%3B%5Calpha%2C%20%5Cgamma%2C%20%5Cmu%2C%20%5Cphi%29%20%3D%20%5Calpha%20%5C%3B%20%5Ctext%7BI%7D%28r%3D0%29%20%2B%20%281-%5Calpha%29%5Cgamma%20%5C%3B%20%5Ctext%7BI%7D%28r%20%3D%201%29%20%2B%20%281-%5Calpha%29%281-%5Cgamma%29F_%7Bbeta%7D%28R%3B%5Cmu%2C%5Cphi%29%20%5Cend%7Balign%2A%7D
+\\end{align\*}](https://latex.codecogs.com/png.latex?%5Cbegin%7Balign%2A%7D%20F_%7BZOIB%7D%28R%3B%5Calpha%2C%20%5Cgamma%2C%20%5Cmu%2C%20%5Cphi%29%20%3D%20%5Calpha%20%5C%3B%20%5Ctext%7BI%7D%28r%3D0%29%20%2B%20%281-%5Calpha%29%5Cgamma%20%5C%3B%20%5Ctext%7BI%7D%28r%20%3D%201%29%20%2B%20%281-%5Calpha%29%281-%5Cgamma%29F_%7Bbeta%7D%28R%3B%5Cmu%2C%5Cphi%29%20%5Cend%7Balign%2A%7D
 "\\begin{align*} F_{ZOIB}(R;\\alpha, \\gamma, \\mu, \\phi) = \\alpha \\; \\text{I}(r=0) + (1-\\alpha)\\gamma \\; \\text{I}(r = 1) + (1-\\alpha)(1-\\gamma)F_{beta}(R;\\mu,\\phi) \\end{align*}")
 
 </center>
 
-Where the density of ![R](https://ibm.codecogs.com/png.latex?R "R"),is
+Where the density of ![R](https://latex.codecogs.com/png.latex?R "R"),is
 defined as:
 
 <center>
 
   
-![f\_{ZOIB}(r\_i;\\alpha, \\gamma, \\mu, \\phi) =
-\\begin{cases}
-\\alpha & \\text{if } r\_i = 0 \\\\
-(1-\\alpha)\\gamma & \\text{if } r\_i = 1 \\\\
+![f\_{ZOIB}(r\_i;\\alpha, \\gamma, \\mu, \\phi) =&#10;
+\\begin{cases}&#10; \\alpha & \\text{if } r\_i = 0 \\\\&#10;
+(1-\\alpha)\\gamma & \\text{if } r\_i = 1 \\\\&#10;
 (1-\\alpha)(1-\\gamma)f\_{beta}(r\_i;\\mu\_{i},\\phi\_{i}) & \\text{if
-}r\_i \\in \\text{(0,1)} \\\\
-\\end{cases}
-\\quad
-(7)](https://ibm.codecogs.com/png.latex?f_%7BZOIB%7D%28r_i%3B%5Calpha%2C%20%5Cgamma%2C%20%5Cmu%2C%20%5Cphi%29%20%3D%0A%20%20%5Cbegin%7Bcases%7D%0A%20%20%20%20%20%20%20%20%5Calpha%20%26%20%5Ctext%7Bif%20%7D%20r_i%20%3D%200%20%5C%5C%0A%20%20%20%20%20%20%20%20%281-%5Calpha%29%5Cgamma%20%26%20%5Ctext%7Bif%20%20%7D%20r_i%20%3D%201%20%5C%5C%0A%20%20%20%20%20%20%20%20%281-%5Calpha%29%281-%5Cgamma%29f_%7Bbeta%7D%28r_i%3B%5Cmu_%7Bi%7D%2C%5Cphi_%7Bi%7D%29%20%26%20%5Ctext%7Bif%20%20%7Dr_i%20%5Cin%20%5Ctext%7B%280%2C1%29%7D%20%5C%5C%0A%20%20%5Cend%7Bcases%7D%0A%20%20%5Cquad%20%287%29
+}r\_i \\in \\text{(0,1)} \\\\&#10; \\end{cases}&#10; \\quad
+(7)](https://latex.codecogs.com/png.latex?f_%7BZOIB%7D%28r_i%3B%5Calpha%2C%20%5Cgamma%2C%20%5Cmu%2C%20%5Cphi%29%20%3D%0A%20%20%5Cbegin%7Bcases%7D%0A%20%20%20%20%20%20%20%20%5Calpha%20%26%20%5Ctext%7Bif%20%7D%20r_i%20%3D%200%20%5C%5C%0A%20%20%20%20%20%20%20%20%281-%5Calpha%29%5Cgamma%20%26%20%5Ctext%7Bif%20%20%7D%20r_i%20%3D%201%20%5C%5C%0A%20%20%20%20%20%20%20%20%281-%5Calpha%29%281-%5Cgamma%29f_%7Bbeta%7D%28r_i%3B%5Cmu_%7Bi%7D%2C%5Cphi_%7Bi%7D%29%20%26%20%5Ctext%7Bif%20%20%7Dr_i%20%5Cin%20%5Ctext%7B%280%2C1%29%7D%20%5C%5C%0A%20%20%5Cend%7Bcases%7D%0A%20%20%5Cquad%20%287%29
 "f_{ZOIB}(r_i;\\alpha, \\gamma, \\mu, \\phi) =
   \\begin{cases}
         \\alpha & \\text{if } r_i = 0 \\\\
@@ -405,48 +403,49 @@ defined as:
 
 ![{0 \< \\alpha, \\gamma, \\mu \< 1 ,\\;\\; \\phi \> 0, \\;\\;
 f\_{beta}(r;\\mu,\\phi) \\sim Beta(p= \\mu\\phi,\\: q=
-\\phi(1-\\mu))}](https://ibm.codecogs.com/png.latex?%7B0%20%3C%20%5Calpha%2C%20%5Cgamma%2C%20%5Cmu%20%3C%201%20%2C%5C%3B%5C%3B%20%5Cphi%20%3E%200%2C%20%5C%3B%5C%3B%20f_%7Bbeta%7D%28r%3B%5Cmu%2C%5Cphi%29%20%5Csim%20Beta%28p%3D%20%5Cmu%5Cphi%2C%5C%3A%20q%3D%20%5Cphi%281-%5Cmu%29%29%7D
+\\phi(1-\\mu))}](https://latex.codecogs.com/png.latex?%7B0%20%3C%20%5Calpha%2C%20%5Cgamma%2C%20%5Cmu%20%3C%201%20%2C%5C%3B%5C%3B%20%5Cphi%20%3E%200%2C%20%5C%3B%5C%3B%20f_%7Bbeta%7D%28r%3B%5Cmu%2C%5Cphi%29%20%5Csim%20Beta%28p%3D%20%5Cmu%5Cphi%2C%5C%3A%20q%3D%20%5Cphi%281-%5Cmu%29%29%7D
 "{0 \< \\alpha, \\gamma, \\mu \< 1 ,\\;\\; \\phi \> 0, \\;\\; f_{beta}(r;\\mu,\\phi) \\sim Beta(p= \\mu\\phi,\\: q= \\phi(1-\\mu))}")
 
 </center>
 
-here ![\\alpha](https://ibm.codecogs.com/png.latex?%5Calpha "\\alpha")
+here ![\\alpha](https://latex.codecogs.com/png.latex?%5Calpha "\\alpha")
 is the probability that the response is equal to zero,
-![\\gamma](https://ibm.codecogs.com/png.latex?%5Cgamma "\\gamma") is the
-probability that the response is equal to one, given the probability
+![\\gamma](https://latex.codecogs.com/png.latex?%5Cgamma "\\gamma") is
+the probability that the response is equal to one, given the probability
 that the response is not equal to zero,
-![\\mu](https://ibm.codecogs.com/png.latex?%5Cmu "\\mu") is the expected
-value of the beta distribution,
-![\\phi](https://ibm.codecogs.com/png.latex?%5Cphi "\\phi") is the
+![\\mu](https://latex.codecogs.com/png.latex?%5Cmu "\\mu") is the
+expected value of the beta distribution,
+![\\phi](https://latex.codecogs.com/png.latex?%5Cphi "\\phi") is the
 precision of the beta distribution, and
-![p](https://ibm.codecogs.com/png.latex?p "p") and
-![q](https://ibm.codecogs.com/png.latex?q "q") are shape parameters;
+![p](https://latex.codecogs.com/png.latex?p "p") and
+![q](https://latex.codecogs.com/png.latex?q "q") are shape parameters;
 ![\\mu =
-\\frac{p}{p+q}](https://ibm.codecogs.com/png.latex?%5Cmu%20%3D%20%5Cfrac%7Bp%7D%7Bp%2Bq%7D
+\\frac{p}{p+q}](https://latex.codecogs.com/png.latex?%5Cmu%20%3D%20%5Cfrac%7Bp%7D%7Bp%2Bq%7D
 "\\mu = \\frac{p}{p+q}") and ![\\phi = p +
-q](https://ibm.codecogs.com/png.latex?%5Cphi%20%3D%20p%20%2B%20q
+q](https://latex.codecogs.com/png.latex?%5Cphi%20%3D%20p%20%2B%20q
 "\\phi = p + q") (Ferrari & Cribari-Neto 2004). Ultimately, ![Y \\sim
 ZOIB(y;\\alpha\_y, \\gamma\_y, \\mu\_y,
-\\phi\_y)](https://ibm.codecogs.com/png.latex?Y%20%5Csim%20ZOIB%28y%3B%5Calpha_y%2C%20%5Cgamma_y%2C%20%5Cmu_y%2C%20%5Cphi_y%29
+\\phi\_y)](https://latex.codecogs.com/png.latex?Y%20%5Csim%20ZOIB%28y%3B%5Calpha_y%2C%20%5Cgamma_y%2C%20%5Cmu_y%2C%20%5Cphi_y%29
 "Y \\sim ZOIB(y;\\alpha_y, \\gamma_y, \\mu_y, \\phi_y)") and ![M \\sim
 ZOIB(m;\\alpha\_m, \\gamma\_m, \\mu\_m,
-\\phi\_m)](https://ibm.codecogs.com/png.latex?M%20%5Csim%20ZOIB%28m%3B%5Calpha_m%2C%20%5Cgamma_m%2C%20%5Cmu_m%2C%20%5Cphi_m%29
+\\phi\_m)](https://latex.codecogs.com/png.latex?M%20%5Csim%20ZOIB%28m%3B%5Calpha_m%2C%20%5Cgamma_m%2C%20%5Cmu_m%2C%20%5Cphi_m%29
 "M \\sim ZOIB(m;\\alpha_m, \\gamma_m, \\mu_m, \\phi_m)").
 
-The ![k^{th}](https://ibm.codecogs.com/png.latex?k%5E%7Bth%7D "k^{th}")
-moment for the density ![(7)](https://ibm.codecogs.com/png.latex?%287%29
-"(7)") of ![R](https://ibm.codecogs.com/png.latex?R "R") and its’
-variance can be written as:
+The ![k^{th}](https://latex.codecogs.com/png.latex?k%5E%7Bth%7D
+"k^{th}") moment for the density
+![(7)](https://latex.codecogs.com/png.latex?%287%29 "(7)") of
+![R](https://latex.codecogs.com/png.latex?R "R") and its’ variance can
+be written as:
 
 <center>
 
   
 ![\\qquad E\[R^{k}\] = (1-\\alpha)\\gamma +
-(1-\\alpha)(1-\\gamma)\\mu\_k , \\quad k = 1,2,... \\qquad (7.1)\\\\
-Var(R) = ((1-\\alpha)\\gamma)(1-((1-\\alpha)\\gamma)) +
+(1-\\alpha)(1-\\gamma)\\mu\_k , \\quad k = 1,2,... \\qquad
+(7.1)\\\\&#10;Var(R) = ((1-\\alpha)\\gamma)(1-((1-\\alpha)\\gamma)) +
 (1-\\alpha)(1-\\gamma)\\left \[ \\frac{\\mu(1-\\mu)}{\\phi+1} +
 \\mu^2-\\mu(1-\\alpha)(2\\gamma+\\mu(1-\\gamma)) \\right \] \\quad
-(7.2)](https://ibm.codecogs.com/png.latex?%5Cqquad%20E%5BR%5E%7Bk%7D%5D%20%3D%20%281-%5Calpha%29%5Cgamma%20%2B%20%281-%5Calpha%29%281-%5Cgamma%29%5Cmu_k%20%2C%20%5Cquad%20k%20%3D%201%2C2%2C...%20%5Cqquad%20%287.1%29%5C%5C%0AVar%28R%29%20%3D%20%28%281-%5Calpha%29%5Cgamma%29%281-%28%281-%5Calpha%29%5Cgamma%29%29%20%2B%20%281-%5Calpha%29%281-%5Cgamma%29%5Cleft%20%5B%20%5Cfrac%7B%5Cmu%281-%5Cmu%29%7D%7B%5Cphi%2B1%7D%20%2B%20%5Cmu%5E2-%5Cmu%281-%5Calpha%29%282%5Cgamma%2B%5Cmu%281-%5Cgamma%29%29%20%5Cright%20%5D%20%5Cquad%20%287.2%29
+(7.2)](https://latex.codecogs.com/png.latex?%5Cqquad%20E%5BR%5E%7Bk%7D%5D%20%3D%20%281-%5Calpha%29%5Cgamma%20%2B%20%281-%5Calpha%29%281-%5Cgamma%29%5Cmu_k%20%2C%20%5Cquad%20k%20%3D%201%2C2%2C...%20%5Cqquad%20%287.1%29%5C%5C%0AVar%28R%29%20%3D%20%28%281-%5Calpha%29%5Cgamma%29%281-%28%281-%5Calpha%29%5Cgamma%29%29%20%2B%20%281-%5Calpha%29%281-%5Cgamma%29%5Cleft%20%5B%20%5Cfrac%7B%5Cmu%281-%5Cmu%29%7D%7B%5Cphi%2B1%7D%20%2B%20%5Cmu%5E2-%5Cmu%281-%5Calpha%29%282%5Cgamma%2B%5Cmu%281-%5Cgamma%29%29%20%5Cright%20%5D%20%5Cquad%20%287.2%29
 "\\qquad E[R^{k}] = (1-\\alpha)\\gamma + (1-\\alpha)(1-\\gamma)\\mu_k , \\quad k = 1,2,... \\qquad (7.1)\\\\
 Var(R) = ((1-\\alpha)\\gamma)(1-((1-\\alpha)\\gamma)) + (1-\\alpha)(1-\\gamma)\\left [ \\frac{\\mu(1-\\mu)}{\\phi+1} + \\mu^2-\\mu(1-\\alpha)(2\\gamma+\\mu(1-\\gamma)) \\right ] \\quad (7.2)")  
 
@@ -457,22 +456,20 @@ Var(R) = ((1-\\alpha)\\gamma)(1-((1-\\alpha)\\gamma)) + (1-\\alpha)(1-\\gamma)\\
 ##### Bayesian Approach
 
 ![R \\sim f\_{ZOIB}(r;\\alpha, \\gamma, \\mu,
-\\phi)](https://ibm.codecogs.com/png.latex?R%20%5Csim%20f_%7BZOIB%7D%28r%3B%5Calpha%2C%20%5Cgamma%2C%20%5Cmu%2C%20%5Cphi%29
+\\phi)](https://latex.codecogs.com/png.latex?R%20%5Csim%20f_%7BZOIB%7D%28r%3B%5Calpha%2C%20%5Cgamma%2C%20%5Cmu%2C%20%5Cphi%29
 "R \\sim f_{ZOIB}(r;\\alpha, \\gamma, \\mu, \\phi)") where we assume
 
 <center>
 
   
-![\\begin{align\*}h^{-1}(\\alpha) = X\\beta\_{\\alpha} \\qquad \\\\
-h^{-1}(\\gamma) = X\\beta\_{\\gamma} \\qquad \\\\
-h^{-1}(\\mu) = X\\beta\_{\\mu} \\qquad \\\\
-exp(\\phi) = X\\beta\_{\\phi} \\qquad \\\\
-\\\\
-\\beta\_{\[-1\]\\alpha} \\sim MVN(0,\\Sigma\_{\\alpha}^{2}), \\\\
-\\beta\_{\[-1\]\\gamma} \\sim MVN(0,\\Sigma\_{\\gamma}^{2}), \\\\
-\\beta\_{\[-1\]\\mu} \\sim MVN(0,\\Sigma\_{\\mu}^{2}), \\\\
-\\beta\_{\[-1\]\\phi} \\sim
-MVN(0,\\Sigma\_{\\phi}^{2})\\end{align\*}](https://ibm.codecogs.com/png.latex?%5Cbegin%7Balign%2A%7Dh%5E%7B-1%7D%28%5Calpha%29%20%3D%20X%5Cbeta_%7B%5Calpha%7D%20%5Cqquad%20%5C%5C%0Ah%5E%7B-1%7D%28%5Cgamma%29%20%3D%20X%5Cbeta_%7B%5Cgamma%7D%20%5Cqquad%20%5C%5C%0Ah%5E%7B-1%7D%28%5Cmu%29%20%3D%20X%5Cbeta_%7B%5Cmu%7D%20%5Cqquad%20%5C%5C%0Aexp%28%5Cphi%29%20%3D%20X%5Cbeta_%7B%5Cphi%7D%20%5Cqquad%20%5C%5C%0A%20%5C%5C%0A%5Cbeta_%7B%5B-1%5D%5Calpha%7D%20%5Csim%20MVN%280%2C%5CSigma_%7B%5Calpha%7D%5E%7B2%7D%29%2C%20%5C%5C%0A%5Cbeta_%7B%5B-1%5D%5Cgamma%7D%20%5Csim%20MVN%280%2C%5CSigma_%7B%5Cgamma%7D%5E%7B2%7D%29%2C%20%5C%5C%0A%5Cbeta_%7B%5B-1%5D%5Cmu%7D%20%5Csim%20MVN%280%2C%5CSigma_%7B%5Cmu%7D%5E%7B2%7D%29%2C%20%5C%5C%0A%5Cbeta_%7B%5B-1%5D%5Cphi%7D%20%5Csim%20MVN%280%2C%5CSigma_%7B%5Cphi%7D%5E%7B2%7D%29%5Cend%7Balign%2A%7D
+![\\begin{align\*}h^{-1}(\\alpha) = X\\beta\_{\\alpha} \\qquad
+\\\\&#10;h^{-1}(\\gamma) = X\\beta\_{\\gamma} \\qquad
+\\\\&#10;h^{-1}(\\mu) = X\\beta\_{\\mu} \\qquad \\\\&#10;exp(\\phi) =
+X\\beta\_{\\phi} \\qquad \\\\&#10; \\\\&#10;\\beta\_{\[-1\]\\alpha}
+\\sim MVN(0,\\Sigma\_{\\alpha}^{2}), \\\\&#10;\\beta\_{\[-1\]\\gamma}
+\\sim MVN(0,\\Sigma\_{\\gamma}^{2}), \\\\&#10;\\beta\_{\[-1\]\\mu} \\sim
+MVN(0,\\Sigma\_{\\mu}^{2}), \\\\&#10;\\beta\_{\[-1\]\\phi} \\sim
+MVN(0,\\Sigma\_{\\phi}^{2})\\end{align\*}](https://latex.codecogs.com/png.latex?%5Cbegin%7Balign%2A%7Dh%5E%7B-1%7D%28%5Calpha%29%20%3D%20X%5Cbeta_%7B%5Calpha%7D%20%5Cqquad%20%5C%5C%0Ah%5E%7B-1%7D%28%5Cgamma%29%20%3D%20X%5Cbeta_%7B%5Cgamma%7D%20%5Cqquad%20%5C%5C%0Ah%5E%7B-1%7D%28%5Cmu%29%20%3D%20X%5Cbeta_%7B%5Cmu%7D%20%5Cqquad%20%5C%5C%0Aexp%28%5Cphi%29%20%3D%20X%5Cbeta_%7B%5Cphi%7D%20%5Cqquad%20%5C%5C%0A%20%5C%5C%0A%5Cbeta_%7B%5B-1%5D%5Calpha%7D%20%5Csim%20MVN%280%2C%5CSigma_%7B%5Calpha%7D%5E%7B2%7D%29%2C%20%5C%5C%0A%5Cbeta_%7B%5B-1%5D%5Cgamma%7D%20%5Csim%20MVN%280%2C%5CSigma_%7B%5Cgamma%7D%5E%7B2%7D%29%2C%20%5C%5C%0A%5Cbeta_%7B%5B-1%5D%5Cmu%7D%20%5Csim%20MVN%280%2C%5CSigma_%7B%5Cmu%7D%5E%7B2%7D%29%2C%20%5C%5C%0A%5Cbeta_%7B%5B-1%5D%5Cphi%7D%20%5Csim%20MVN%280%2C%5CSigma_%7B%5Cphi%7D%5E%7B2%7D%29%5Cend%7Balign%2A%7D
 "\\begin{align*}h^{-1}(\\alpha) = X\\beta_{\\alpha} \\qquad \\\\
 h^{-1}(\\gamma) = X\\beta_{\\gamma} \\qquad \\\\
 h^{-1}(\\mu) = X\\beta_{\\mu} \\qquad \\\\
@@ -485,80 +482,80 @@ exp(\\phi) = X\\beta_{\\phi} \\qquad \\\\
 
 </center>
 
-where the link function ![h](https://ibm.codecogs.com/png.latex?h "h")
+where the link function ![h](https://latex.codecogs.com/png.latex?h "h")
 is a logit link function;
-![h^{-1}](https://ibm.codecogs.com/png.latex?h%5E%7B-1%7D "h^{-1}"), is
-the inverse of the link function that map values to a proportion between
-0 and 1. ![MVN](https://ibm.codecogs.com/png.latex?MVN "MVN") is the
-Multivariate Normal distribution, and
-![\\beta\_{\[-1\]}](https://ibm.codecogs.com/png.latex?%5Cbeta_%7B%5B-1%5D%7D
+![h^{-1}](https://latex.codecogs.com/png.latex?h%5E%7B-1%7D "h^{-1}"),
+is the inverse of the link function that map values to a proportion
+between 0 and 1. ![MVN](https://latex.codecogs.com/png.latex?MVN "MVN")
+is the Multivariate Normal distribution, and
+![\\beta\_{\[-1\]}](https://latex.codecogs.com/png.latex?%5Cbeta_%7B%5B-1%5D%7D
 "\\beta_{[-1]}") represents distribution of the
-![\\beta](https://ibm.codecogs.com/png.latex?%5Cbeta "\\beta")
+![\\beta](https://latex.codecogs.com/png.latex?%5Cbeta "\\beta")
 coefficients, excluding the intercept; the intercept of every
-![\\beta](https://ibm.codecogs.com/png.latex?%5Cbeta "\\beta")
+![\\beta](https://latex.codecogs.com/png.latex?%5Cbeta "\\beta")
 coefficient is assigned a uniform prior distribution.
 
-For the mediator model, ![X](https://ibm.codecogs.com/png.latex?X "X")
+For the mediator model, ![X](https://latex.codecogs.com/png.latex?X "X")
 is a matrix containing the intercept, the baseline covariates,
-![Z](https://ibm.codecogs.com/png.latex?Z "Z"), and the treatment
-variable ![A](https://ibm.codecogs.com/png.latex?A "A"). For the outcome
-model, ![X](https://ibm.codecogs.com/png.latex?X "X") is a matrix
-containing the intercept, the baseline covariates,
-![Z](https://ibm.codecogs.com/png.latex?Z "Z"), the treatment variable
-![A](https://ibm.codecogs.com/png.latex?A "A"), and the mediator
-variable ![M](https://ibm.codecogs.com/png.latex?M "M") under a
+![Z](https://latex.codecogs.com/png.latex?Z "Z"), and the treatment
+variable ![A](https://latex.codecogs.com/png.latex?A "A"). For the
+outcome model, ![X](https://latex.codecogs.com/png.latex?X "X") is a
+matrix containing the intercept, the baseline covariates,
+![Z](https://latex.codecogs.com/png.latex?Z "Z"), the treatment variable
+![A](https://latex.codecogs.com/png.latex?A "A"), and the mediator
+variable ![M](https://latex.codecogs.com/png.latex?M "M") under a
 specified treatment.
 
 ##### Procedure
 
 1.  Assign the prior covariance matrix per parameter for the
-    ![\\beta](https://ibm.codecogs.com/png.latex?%5Cbeta "\\beta")
+    ![\\beta](https://latex.codecogs.com/png.latex?%5Cbeta "\\beta")
     coefficients.
 2.  Using these priors and the observed data, fit the models for the
     mediator and the outcome. Simulate the model parameters to obtain
     the estimated coefficients for each sampling distribution:
-    ![\\theta\_M](https://ibm.codecogs.com/png.latex?%5Ctheta_M
+    ![\\theta\_M](https://latex.codecogs.com/png.latex?%5Ctheta_M
     "\\theta_M") and
-    ![\\theta\_Y](https://ibm.codecogs.com/png.latex?%5Ctheta_Y
+    ![\\theta\_Y](https://latex.codecogs.com/png.latex?%5Ctheta_Y
     "\\theta_Y").
 3.  For each chain of the simulation: create a new dataset, of size
-    ![sim](https://ibm.codecogs.com/png.latex?sim "sim"), by taking a
+    ![sim](https://latex.codecogs.com/png.latex?sim "sim"), by taking a
     random sample, of the rows, with replacement,from the original data.
     The probabilty of selection for each row is given by
-    ![\\omega\_i](https://ibm.codecogs.com/png.latex?%5Comega_i
+    ![\\omega\_i](https://latex.codecogs.com/png.latex?%5Comega_i
     "\\omega_i"); ![\\omega = (\\omega\_1, \\omega\_2,...\\omega\_n)
     \\sim
-    Dir(1,1,...,1)](https://ibm.codecogs.com/png.latex?%5Comega%20%3D%20%28%5Comega_1%2C%20%5Comega_2%2C...%5Comega_n%29%20%5Csim%20Dir%281%2C1%2C...%2C1%29
+    Dir(1,1,...,1)](https://latex.codecogs.com/png.latex?%5Comega%20%3D%20%28%5Comega_1%2C%20%5Comega_2%2C...%5Comega_n%29%20%5Csim%20Dir%281%2C1%2C...%2C1%29
     "\\omega = (\\omega_1, \\omega_2,...\\omega_n) \\sim Dir(1,1,...,1)").
 4.  Duplicate the dataset created in step 3. In one of the duplicated
     datasets, set the treatment variable to
-    ![a](https://ibm.codecogs.com/png.latex?a "a") for the entire
+    ![a](https://latex.codecogs.com/png.latex?a "a") for the entire
     dataset. In the other duplicated dataset, set the treatment variable
-    to ![a'](https://ibm.codecogs.com/png.latex?a%27 "a'").
+    to ![a'](https://latex.codecogs.com/png.latex?a%27 "a'").
 5.  Using the duplicated datasets created in step 4, simulate new values
     of the mediator for each subject. Simulate these new mediator values
     using the estimated parameters from step 2. This step will result in
     two variables, the mediator under treatment
-    ![a](https://ibm.codecogs.com/png.latex?a "a"),
-    (![M^a](https://ibm.codecogs.com/png.latex?M%5Ea "M^a")), and the
+    ![a](https://latex.codecogs.com/png.latex?a "a"),
+    (![M^a](https://latex.codecogs.com/png.latex?M%5Ea "M^a")), and the
     meditor under treatment
-    ![a'](https://ibm.codecogs.com/png.latex?a%27 "a'"),
-    (![M^{a'}](https://ibm.codecogs.com/png.latex?M%5E%7Ba%27%7D
+    ![a'](https://latex.codecogs.com/png.latex?a%27 "a'"),
+    (![M^{a'}](https://latex.codecogs.com/png.latex?M%5E%7Ba%27%7D
     "M^{a'}")).
 6.  Using the duplicated datasets from step 4 and the new simulated
     mediator values from step 5, create a total of four datasets. Half
     of these datasets will have the treatment variable set to
-    ![a](https://ibm.codecogs.com/png.latex?a "a") for the entire
+    ![a](https://latex.codecogs.com/png.latex?a "a") for the entire
     dataset and the other half will have the treatment variable set to
-    ![a'](https://ibm.codecogs.com/png.latex?a%27 "a'") for the entire
+    ![a'](https://latex.codecogs.com/png.latex?a%27 "a'") for the entire
     dataset. For the half of the datasets that have treatment set to
-    ![a](https://ibm.codecogs.com/png.latex?a "a"), set the mediator
+    ![a](https://latex.codecogs.com/png.latex?a "a"), set the mediator
     value for one entire dataset to
-    ![M^a](https://ibm.codecogs.com/png.latex?M%5Ea "M^a") and for the
+    ![M^a](https://latex.codecogs.com/png.latex?M%5Ea "M^a") and for the
     other dataset set the mediator value to
-    ![M^{a'}](https://ibm.codecogs.com/png.latex?M%5E%7Ba%27%7D
+    ![M^{a'}](https://latex.codecogs.com/png.latex?M%5E%7Ba%27%7D
     "M^{a'}"). Do the same for the second half of the datasets that have
-    the treatment set to ![a'](https://ibm.codecogs.com/png.latex?a%27
+    the treatment set to ![a'](https://latex.codecogs.com/png.latex?a%27
     "a'").
 7.  Simulate new values of the outcome for each dataset created in step
     6. Simulate these new outcome values using the estimated parameters
@@ -627,8 +624,7 @@ jobs_data <-
 
 ## Stan Model
 
-This model will
-    return:
+This model will return:
 
     * all_params_y - alpha, gamma, p, q for the outcome model (1:iterations,1:n,1:4)
     
@@ -649,11 +645,10 @@ This model will
     * pred_y - generated quantities, prediction of the outcome (1:iterations, 1:sim, 4) where [y0m0, y0m1, y1m1, y1m0]
 
 *Note: pred\_y has the columns to represent ![Y^{A=a,
-M^{A=a}}](https://ibm.codecogs.com/png.latex?Y%5E%7BA%3Da%2C%20M%5E%7BA%3Da%7D%7D
+M^{A=a}}](https://latex.codecogs.com/png.latex?Y%5E%7BA%3Da%2C%20M%5E%7BA%3Da%7D%7D
 "Y^{A=a, M^{A=a}}").*
 
-We can fit the model in Stan with the following code
-.
+We can fit the model in Stan with the following code .
 
 ``` r
 # stan_zoib <- stan_model('~/Google Drive TheStudent/Dissertation Hours/Code/STAN/bk_zoib_regression_github.stan')
@@ -872,14 +867,14 @@ When assessing STAN output, one of the things that you want to check is
 whether the chains are converging, and that they are converging to the
 same area. Some of the recommended convergence checks include monitoring
 the potential scale reduction (PSR) factor, ![\\hat
-R](https://ibm.codecogs.com/png.latex?%5Chat%20R "\\hat R") statistic,
+R](https://latex.codecogs.com/png.latex?%5Chat%20R "\\hat R") statistic,
 and using visual checks, e.g. traceplots. ![\\hat
-R](https://ibm.codecogs.com/png.latex?%5Chat%20R "\\hat R") evaluates
+R](https://latex.codecogs.com/png.latex?%5Chat%20R "\\hat R") evaluates
 the mixing of the chains by comparing the variation between the chains
 to the variation within the chains. “The condition of ![\\hat
-R](https://ibm.codecogs.com/png.latex?%5Chat%20R "\\hat R") being ‘near’
-1 depends on the problem at hand, but we generally have been satisfied
-with setting 1.1 as a threshold” (Gelman et al., 2004).
+R](https://latex.codecogs.com/png.latex?%5Chat%20R "\\hat R") being
+‘near’ 1 depends on the problem at hand, but we generally have been
+satisfied with setting 1.1 as a threshold” (Gelman et al., 2004).
 
 Additionally, since the Markov Chain Monte Carlo (MCMC) does not return
 independent draws, the simulations within each chain will show some
@@ -887,10 +882,10 @@ level of autocorrelation. This autocorrelation inceases the uncertainty
 of the estimation of poesterior quantities. The amount by which this
 autocrorrelation increases in estimates can be measured by the effective
 sample size (ESS),
-![n\_{eff}](https://ibm.codecogs.com/png.latex?n_%7Beff%7D "n_{eff}"),
+![n\_{eff}](https://latex.codecogs.com/png.latex?n_%7Beff%7D "n_{eff}"),
 which should be large so that it can provide a measure of precision;
-![n\_{eff}](https://ibm.codecogs.com/png.latex?n_%7Beff%7D "n_{eff}") is
-the ‘effective number of independent simulation draws’.
+![n\_{eff}](https://latex.codecogs.com/png.latex?n_%7Beff%7D "n_{eff}")
+is the ‘effective number of independent simulation draws’.
 
     ## $coef_mediator
     ## [1] 4000    5    4
@@ -966,8 +961,7 @@ Mean
 
 <th style="text-align:left;">
 
-3rd
-Qu.
+3rd Qu.
 
 </th>
 
@@ -1011,19 +1005,19 @@ r\_hat
 
 <td style="text-align:left;">
 
-1.0000
+0.9999
 
 </td>
 
 <td style="text-align:left;">
 
-1.0003
+1.0002
 
 </td>
 
 <td style="text-align:left;">
 
-1.0028
+1.0031
 
 </td>
 
@@ -1039,37 +1033,37 @@ n\_eff
 
 <td style="text-align:left;">
 
-1879
+1549
 
 </td>
 
 <td style="text-align:left;">
 
-3794
+3822
 
 </td>
 
 <td style="text-align:left;">
 
-3987
+4003
 
 </td>
 
 <td style="text-align:left;">
 
-4085
+4167
 
 </td>
 
 <td style="text-align:left;">
 
-4268
+4401
 
 </td>
 
 <td style="text-align:left;">
 
-6188
+7930
 
 </td>
 
@@ -1093,8 +1087,7 @@ n\_eff
 
 <caption>
 
-Table
-3
+Table 3
 
 </caption>
 
@@ -1190,43 +1183,43 @@ coef\_mediator\[1,1\]
 
 <td style="text-align:center;">
 
-\-8.9504
+\-9.0283
 
 </td>
 
 <td style="text-align:center;">
 
-0.0375
+0.0404
 
 </td>
 
 <td style="text-align:center;">
 
-1.8388
+1.8501
 
 </td>
 
 <td style="text-align:center;">
 
-\-13.0256
+\-12.9109
 
 </td>
 
 <td style="text-align:center;">
 
-\-5.8110
+\-5.8674
 
 </td>
 
 <td style="text-align:center;">
 
-2407.206
+2099.987
 
 </td>
 
 <td style="text-align:center;">
 
-1.0004
+1.0003
 
 </td>
 
@@ -1248,43 +1241,43 @@ coef\_mediator\[1,2\]
 
 <td style="text-align:center;">
 
-\-2.0734
+\-2.0751
 
 </td>
 
 <td style="text-align:center;">
 
-0.0036
+0.0034
 
 </td>
 
 <td style="text-align:center;">
 
-0.1845
+0.1825
 
 </td>
 
 <td style="text-align:center;">
 
-\-2.4544
+\-2.4442
 
 </td>
 
 <td style="text-align:center;">
 
-\-1.7168
+\-1.7406
 
 </td>
 
 <td style="text-align:center;">
 
-2633.013
+2938.431
 
 </td>
 
 <td style="text-align:center;">
 
-0.9998
+1.0006
 
 </td>
 
@@ -1306,7 +1299,7 @@ coef\_mediator\[1,3\]
 
 <td style="text-align:center;">
 
-0.9339
+0.9333
 
 </td>
 
@@ -1318,31 +1311,31 @@ coef\_mediator\[1,3\]
 
 <td style="text-align:center;">
 
-0.0469
+0.0475
 
 </td>
 
 <td style="text-align:center;">
 
-0.8415
+0.8394
 
 </td>
 
 <td style="text-align:center;">
 
-1.0235
+1.0269
 
 </td>
 
 <td style="text-align:center;">
 
-2881.332
+2664.567
 
 </td>
 
 <td style="text-align:center;">
 
-1.0000
+0.9994
 
 </td>
 
@@ -1364,7 +1357,7 @@ coef\_mediator\[1,4\]
 
 <td style="text-align:center;">
 
-1.9972
+1.9967
 
 </td>
 
@@ -1376,31 +1369,31 @@ coef\_mediator\[1,4\]
 
 <td style="text-align:center;">
 
-0.0818
+0.0829
 
 </td>
 
 <td style="text-align:center;">
 
-1.8351
+1.8382
 
 </td>
 
 <td style="text-align:center;">
 
-2.1497
+2.1584
 
 </td>
 
 <td style="text-align:center;">
 
-2761.153
+2648.302
 
 </td>
 
 <td style="text-align:center;">
 
-0.9999
+1.0005
 
 </td>
 
@@ -1422,43 +1415,43 @@ coef\_mediator\[2,1\]
 
 <td style="text-align:center;">
 
-\-0.7935
+\-0.8211
 
 </td>
 
 <td style="text-align:center;">
 
-0.0130
+0.0134
 
 </td>
 
 <td style="text-align:center;">
 
-0.8101
+0.8095
 
 </td>
 
 <td style="text-align:center;">
 
-\-2.4931
+\-2.5619
 
 </td>
 
 <td style="text-align:center;">
 
-0.7039
+0.6632
 
 </td>
 
 <td style="text-align:center;">
 
-3863.642
+3656.823
 
 </td>
 
 <td style="text-align:center;">
 
-0.9993
+1.0004
 
 </td>
 
@@ -1480,43 +1473,43 @@ coef\_mediator\[2,2\]
 
 <td style="text-align:center;">
 
-0.2248
+0.2259
 
 </td>
 
 <td style="text-align:center;">
 
-0.0014
+0.0013
 
 </td>
 
 <td style="text-align:center;">
 
-0.0971
+0.0964
 
 </td>
 
 <td style="text-align:center;">
 
-0.0303
+0.0414
 
 </td>
 
 <td style="text-align:center;">
 
-0.4160
+0.4129
 
 </td>
 
 <td style="text-align:center;">
 
-4805.615
+5331.649
 
 </td>
 
 <td style="text-align:center;">
 
-0.9993
+0.9996
 
 </td>
 
@@ -1538,7 +1531,7 @@ coef\_mediator\[2,3\]
 
 <td style="text-align:center;">
 
-0.0215
+0.0203
 
 </td>
 
@@ -1550,31 +1543,31 @@ coef\_mediator\[2,3\]
 
 <td style="text-align:center;">
 
-0.0286
+0.0290
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.0335
+\-0.0375
 
 </td>
 
 <td style="text-align:center;">
 
-0.0764
+0.0778
 
 </td>
 
 <td style="text-align:center;">
 
-4564.880
+4847.485
 
 </td>
 
 <td style="text-align:center;">
 
-1.0004
+0.9996
 
 </td>
 
@@ -1596,43 +1589,43 @@ coef\_mediator\[2,4\]
 
 <td style="text-align:center;">
 
-\-0.0105
+\-0.0101
 
 </td>
 
 <td style="text-align:center;">
 
-0.0007
+0.0008
 
 </td>
 
 <td style="text-align:center;">
 
-0.0495
+0.0490
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.1094
+\-0.1075
 
 </td>
 
 <td style="text-align:center;">
 
-0.0841
+0.0857
 
 </td>
 
 <td style="text-align:center;">
 
-5237.077
+4258.027
 
 </td>
 
 <td style="text-align:center;">
 
-1.0003
+0.9993
 
 </td>
 
@@ -1654,43 +1647,43 @@ coef\_mediator\[3,1\]
 
 <td style="text-align:center;">
 
-\-0.1578
+\-0.1564
 
 </td>
 
 <td style="text-align:center;">
 
-0.0123
+0.0110
 
 </td>
 
 <td style="text-align:center;">
 
-0.8158
+0.8025
 
 </td>
 
 <td style="text-align:center;">
 
-\-1.8231
+\-1.7402
 
 </td>
 
 <td style="text-align:center;">
 
-1.4481
+1.4096
 
 </td>
 
 <td style="text-align:center;">
 
-4382.138
+5367.523
 
 </td>
 
 <td style="text-align:center;">
 
-1.0003
+1.0001
 
 </td>
 
@@ -1712,43 +1705,43 @@ coef\_mediator\[3,2\]
 
 <td style="text-align:center;">
 
-0.1074
+0.1103
 
 </td>
 
 <td style="text-align:center;">
 
-0.0014
+0.0013
 
 </td>
 
 <td style="text-align:center;">
 
-0.0945
+0.0981
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.0779
+\-0.0807
 
 </td>
 
 <td style="text-align:center;">
 
-0.2944
+0.3030
 
 </td>
 
 <td style="text-align:center;">
 
-4732.798
+5316.086
 
 </td>
 
 <td style="text-align:center;">
 
-1.0002
+0.9994
 
 </td>
 
@@ -1770,7 +1763,7 @@ coef\_mediator\[3,3\]
 
 <td style="text-align:center;">
 
-\-0.0408
+\-0.0405
 
 </td>
 
@@ -1782,31 +1775,31 @@ coef\_mediator\[3,3\]
 
 <td style="text-align:center;">
 
-0.0283
+0.0286
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.0956
+\-0.0941
 
 </td>
 
 <td style="text-align:center;">
 
-0.0151
+0.0174
 
 </td>
 
 <td style="text-align:center;">
 
-5060.141
+5054.996
 
 </td>
 
 <td style="text-align:center;">
 
-0.9995
+0.9999
 
 </td>
 
@@ -1828,13 +1821,13 @@ coef\_mediator\[3,4\]
 
 <td style="text-align:center;">
 
-\-0.1245
+\-0.1246
 
 </td>
 
 <td style="text-align:center;">
 
-0.0008
+0.0007
 
 </td>
 
@@ -1846,25 +1839,25 @@ coef\_mediator\[3,4\]
 
 <td style="text-align:center;">
 
-\-0.2225
+\-0.2222
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.0273
+\-0.0256
 
 </td>
 
 <td style="text-align:center;">
 
-4114.331
+5578.842
 
 </td>
 
 <td style="text-align:center;">
 
-1.0013
+0.9998
 
 </td>
 
@@ -1886,43 +1879,43 @@ coef\_mediator\[4,1\]
 
 <td style="text-align:center;">
 
-0.3589
+0.3644
 
 </td>
 
 <td style="text-align:center;">
 
-0.0106
+0.0107
 
 </td>
 
 <td style="text-align:center;">
 
-0.6949
+0.6905
 
 </td>
 
 <td style="text-align:center;">
 
-\-1.0403
+\-1.0056
 
 </td>
 
 <td style="text-align:center;">
 
-1.7257
+1.7135
 
 </td>
 
 <td style="text-align:center;">
 
-4287.051
+4156.059
 
 </td>
 
 <td style="text-align:center;">
 
-1.0003
+1.0000
 
 </td>
 
@@ -1944,7 +1937,7 @@ coef\_mediator\[4,2\]
 
 <td style="text-align:center;">
 
-\-0.0775
+\-0.0762
 
 </td>
 
@@ -1956,31 +1949,31 @@ coef\_mediator\[4,2\]
 
 <td style="text-align:center;">
 
-0.0956
+0.0971
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.2649
+\-0.2712
 
 </td>
 
 <td style="text-align:center;">
 
-0.1095
+0.1121
 
 </td>
 
 <td style="text-align:center;">
 
-4791.682
+4534.600
 
 </td>
 
 <td style="text-align:center;">
 
-0.9999
+0.9998
 
 </td>
 
@@ -2002,7 +1995,7 @@ coef\_mediator\[4,3\]
 
 <td style="text-align:center;">
 
-0.0887
+0.0885
 
 </td>
 
@@ -2014,31 +2007,31 @@ coef\_mediator\[4,3\]
 
 <td style="text-align:center;">
 
-0.0275
+0.0279
 
 </td>
 
 <td style="text-align:center;">
 
-0.0340
+0.0352
 
 </td>
 
 <td style="text-align:center;">
 
-0.1408
+0.1428
 
 </td>
 
 <td style="text-align:center;">
 
-4470.367
+5137.867
 
 </td>
 
 <td style="text-align:center;">
 
-0.9996
+1.0005
 
 </td>
 
@@ -2060,7 +2053,7 @@ coef\_mediator\[4,4\]
 
 <td style="text-align:center;">
 
-0.1232
+0.1236
 
 </td>
 
@@ -2072,31 +2065,31 @@ coef\_mediator\[4,4\]
 
 <td style="text-align:center;">
 
-0.0495
+0.0502
 
 </td>
 
 <td style="text-align:center;">
 
-0.0267
+0.0241
 
 </td>
 
 <td style="text-align:center;">
 
-0.2213
+0.2230
 
 </td>
 
 <td style="text-align:center;">
 
-4730.354
+5143.150
 
 </td>
 
 <td style="text-align:center;">
 
-0.9996
+0.9999
 
 </td>
 
@@ -2118,43 +2111,43 @@ coef\_mediator\[5,1\]
 
 <td style="text-align:center;">
 
-1.6897
+1.7391
 
 </td>
 
 <td style="text-align:center;">
 
-0.0297
+0.0319
 
 </td>
 
 <td style="text-align:center;">
 
-1.6135
+1.6061
 
 </td>
 
 <td style="text-align:center;">
 
-\-1.2281
+\-1.1382
 
 </td>
 
 <td style="text-align:center;">
 
-5.0271
+5.2488
 
 </td>
 
 <td style="text-align:center;">
 
-2947.680
+2539.395
 
 </td>
 
 <td style="text-align:center;">
 
-1.0009
+1.0000
 
 </td>
 
@@ -2176,43 +2169,43 @@ coef\_mediator\[5,2\]
 
 <td style="text-align:center;">
 
-0.3637
+0.3692
 
 </td>
 
 <td style="text-align:center;">
 
-0.0042
+0.0039
 
 </td>
 
 <td style="text-align:center;">
 
-0.2136
+0.2157
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.0488
+\-0.0367
 
 </td>
 
 <td style="text-align:center;">
 
-0.8020
+0.7931
 
 </td>
 
 <td style="text-align:center;">
 
-2648.469
+3009.033
 
 </td>
 
 <td style="text-align:center;">
 
-0.9999
+1.0006
 
 </td>
 
@@ -2234,7 +2227,7 @@ coef\_mediator\[5,3\]
 
 <td style="text-align:center;">
 
-0.0157
+0.0166
 
 </td>
 
@@ -2246,31 +2239,31 @@ coef\_mediator\[5,3\]
 
 <td style="text-align:center;">
 
-0.0585
+0.0595
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.0998
+\-0.0960
 
 </td>
 
 <td style="text-align:center;">
 
-0.1300
+0.1365
 
 </td>
 
 <td style="text-align:center;">
 
-2885.014
+2748.876
 
 </td>
 
 <td style="text-align:center;">
 
-1.0002
+0.9995
 
 </td>
 
@@ -2292,7 +2285,7 @@ coef\_mediator\[5,4\]
 
 <td style="text-align:center;">
 
-\-0.1123
+\-0.1101
 
 </td>
 
@@ -2304,31 +2297,31 @@ coef\_mediator\[5,4\]
 
 <td style="text-align:center;">
 
-0.1007
+0.1010
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.3045
+\-0.3107
 
 </td>
 
 <td style="text-align:center;">
 
-0.0826
+0.0836
 
 </td>
 
 <td style="text-align:center;">
 
-2887.499
+2797.864
 
 </td>
 
 <td style="text-align:center;">
 
-1.0002
+1.0004
 
 </td>
 
@@ -2356,43 +2349,43 @@ coef\_outcome\[1,1\]
 
 <td style="text-align:center;">
 
-\-5.1968
+\-5.1793
 
 </td>
 
 <td style="text-align:center;">
 
-0.0124
+0.0125
 
 </td>
 
 <td style="text-align:center;">
 
-0.6308
+0.6274
 
 </td>
 
 <td style="text-align:center;">
 
-\-6.4650
+\-6.4370
 
 </td>
 
 <td style="text-align:center;">
 
-\-3.9728
+\-3.9643
 
 </td>
 
 <td style="text-align:center;">
 
-2572.552
+2505.241
 
 </td>
 
 <td style="text-align:center;">
 
-1.0017
+1.0010
 
 </td>
 
@@ -2414,43 +2407,43 @@ coef\_outcome\[1,2\]
 
 <td style="text-align:center;">
 
-\-10.1844
+\-10.2122
 
 </td>
 
 <td style="text-align:center;">
 
-0.0726
+0.0786
 
 </td>
 
 <td style="text-align:center;">
 
-3.1484
+3.0949
 
 </td>
 
 <td style="text-align:center;">
 
-\-16.9582
+\-16.9426
 
 </td>
 
 <td style="text-align:center;">
 
-\-4.6876
+\-4.9023
 
 </td>
 
 <td style="text-align:center;">
 
-1878.556
+1549.436
 
 </td>
 
 <td style="text-align:center;">
 
-1.0009
+1.0021
 
 </td>
 
@@ -2472,43 +2465,43 @@ coef\_outcome\[1,3\]
 
 <td style="text-align:center;">
 
-\-0.4544
+\-0.4482
 
 </td>
 
 <td style="text-align:center;">
 
-0.0028
+0.0033
 
 </td>
 
 <td style="text-align:center;">
 
-0.1382
+0.1397
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.7191
+\-0.7158
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.1815
+\-0.1719
 
 </td>
 
 <td style="text-align:center;">
 
-2388.798
+1771.825
 
 </td>
 
 <td style="text-align:center;">
 
-1.0001
+1.0007
 
 </td>
 
@@ -2530,43 +2523,43 @@ coef\_outcome\[1,4\]
 
 <td style="text-align:center;">
 
-1.8013
+1.7950
 
 </td>
 
 <td style="text-align:center;">
 
-0.0048
+0.0053
 
 </td>
 
 <td style="text-align:center;">
 
-0.2256
+0.2319
 
 </td>
 
 <td style="text-align:center;">
 
-1.3648
+1.3421
 
 </td>
 
 <td style="text-align:center;">
 
-2.2367
+2.2390
 
 </td>
 
 <td style="text-align:center;">
 
-2173.031
+1899.775
 
 </td>
 
 <td style="text-align:center;">
 
-1.0002
+1.0001
 
 </td>
 
@@ -2588,7 +2581,7 @@ coef\_outcome\[2,1\]
 
 <td style="text-align:center;">
 
-\-0.3482
+\-0.3451
 
 </td>
 
@@ -2600,31 +2593,31 @@ coef\_outcome\[2,1\]
 
 <td style="text-align:center;">
 
-0.1129
+0.1152
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.5664
+\-0.5736
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.1307
+\-0.1238
 
 </td>
 
 <td style="text-align:center;">
 
-4502.747
+4546.028
 
 </td>
 
 <td style="text-align:center;">
 
-0.9993
+1.0004
 
 </td>
 
@@ -2646,43 +2639,43 @@ coef\_outcome\[2,2\]
 
 <td style="text-align:center;">
 
-2.0742
+2.1103
 
 </td>
 
 <td style="text-align:center;">
 
-0.0266
+0.0276
 
 </td>
 
 <td style="text-align:center;">
 
-1.3449
+1.3485
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.1962
+\-0.2034
 
 </td>
 
 <td style="text-align:center;">
 
-5.1265
+5.1299
 
 </td>
 
 <td style="text-align:center;">
 
-2548.968
+2390.713
 
 </td>
 
 <td style="text-align:center;">
 
-1.0002
+1.0005
 
 </td>
 
@@ -2704,7 +2697,7 @@ coef\_outcome\[2,3\]
 
 <td style="text-align:center;">
 
-0.2046
+0.2058
 
 </td>
 
@@ -2716,31 +2709,31 @@ coef\_outcome\[2,3\]
 
 <td style="text-align:center;">
 
-0.0320
+0.0313
 
 </td>
 
 <td style="text-align:center;">
 
-0.1420
+0.1429
 
 </td>
 
 <td style="text-align:center;">
 
-0.2677
+0.2678
 
 </td>
 
 <td style="text-align:center;">
 
-5167.922
+5204.225
 
 </td>
 
 <td style="text-align:center;">
 
-1.0001
+0.9997
 
 </td>
 
@@ -2762,43 +2755,43 @@ coef\_outcome\[2,4\]
 
 <td style="text-align:center;">
 
-\-0.1274
+\-0.1287
 
 </td>
 
 <td style="text-align:center;">
 
-0.0008
+0.0007
 
 </td>
 
 <td style="text-align:center;">
 
-0.0517
+0.0503
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.2285
+\-0.2294
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.0268
+\-0.0332
 
 </td>
 
 <td style="text-align:center;">
 
-3902.050
+4805.560
 
 </td>
 
 <td style="text-align:center;">
 
-1.0006
+0.9994
 
 </td>
 
@@ -2820,43 +2813,43 @@ coef\_outcome\[3,1\]
 
 <td style="text-align:center;">
 
-\-0.1161
+\-0.1146
 
 </td>
 
 <td style="text-align:center;">
 
-0.0016
+0.0015
 
 </td>
 
 <td style="text-align:center;">
 
-0.1122
+0.1086
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.3333
+\-0.3275
 
 </td>
 
 <td style="text-align:center;">
 
-0.1059
+0.1012
 
 </td>
 
 <td style="text-align:center;">
 
-4775.536
+4942.761
 
 </td>
 
 <td style="text-align:center;">
 
-0.9997
+1.0005
 
 </td>
 
@@ -2878,43 +2871,43 @@ coef\_outcome\[3,2\]
 
 <td style="text-align:center;">
 
-1.5747
+1.5823
 
 </td>
 
 <td style="text-align:center;">
 
-0.0260
+0.0250
 
 </td>
 
 <td style="text-align:center;">
 
-1.5324
+1.5155
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.9448
+\-0.9051
 
 </td>
 
 <td style="text-align:center;">
 
-4.9056
+5.0046
 
 </td>
 
 <td style="text-align:center;">
 
-3468.863
+3668.561
 
 </td>
 
 <td style="text-align:center;">
 
-1.0009
+1.0017
 
 </td>
 
@@ -2936,7 +2929,7 @@ coef\_outcome\[3,3\]
 
 <td style="text-align:center;">
 
-0.0751
+0.0760
 
 </td>
 
@@ -2948,31 +2941,31 @@ coef\_outcome\[3,3\]
 
 <td style="text-align:center;">
 
-0.0312
+0.0302
 
 </td>
 
 <td style="text-align:center;">
 
-0.0137
+0.0164
 
 </td>
 
 <td style="text-align:center;">
 
-0.1361
+0.1331
 
 </td>
 
 <td style="text-align:center;">
 
-4210.932
+4304.896
 
 </td>
 
 <td style="text-align:center;">
 
-0.9999
+1.0000
 
 </td>
 
@@ -2994,7 +2987,7 @@ coef\_outcome\[3,4\]
 
 <td style="text-align:center;">
 
-\-0.0956
+\-0.0964
 
 </td>
 
@@ -3006,31 +2999,31 @@ coef\_outcome\[3,4\]
 
 <td style="text-align:center;">
 
-0.0487
+0.0485
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.1946
+\-0.1915
 
 </td>
 
 <td style="text-align:center;">
 
-0.0007
+\-0.0001
 
 </td>
 
 <td style="text-align:center;">
 
-4157.896
+4091.754
 
 </td>
 
 <td style="text-align:center;">
 
-0.9997
+0.9999
 
 </td>
 
@@ -3052,43 +3045,43 @@ coef\_outcome\[4,1\]
 
 <td style="text-align:center;">
 
-0.1249
+0.1276
 
 </td>
 
 <td style="text-align:center;">
 
-0.0015
+0.0013
 
 </td>
 
 <td style="text-align:center;">
 
-0.1071
+0.1060
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.0826
+\-0.0850
 
 </td>
 
 <td style="text-align:center;">
 
-0.3341
+0.3314
 
 </td>
 
 <td style="text-align:center;">
 
-5426.100
+6175.524
 
 </td>
 
 <td style="text-align:center;">
 
-0.9998
+0.9992
 
 </td>
 
@@ -3110,43 +3103,43 @@ coef\_outcome\[4,2\]
 
 <td style="text-align:center;">
 
-\-0.2966
+\-0.2904
 
 </td>
 
 <td style="text-align:center;">
 
-0.0168
+0.0163
 
 </td>
 
 <td style="text-align:center;">
 
-1.1281
+1.1389
 
 </td>
 
 <td style="text-align:center;">
 
-\-2.6803
+\-2.7103
 
 </td>
 
 <td style="text-align:center;">
 
-1.7931
+1.8449
 
 </td>
 
 <td style="text-align:center;">
 
-4485.079
+4866.476
 
 </td>
 
 <td style="text-align:center;">
 
-1.0005
+1.0000
 
 </td>
 
@@ -3186,25 +3179,25 @@ coef\_outcome\[4,3\]
 
 <td style="text-align:center;">
 
-\-0.0366
+\-0.0394
 
 </td>
 
 <td style="text-align:center;">
 
-0.0878
+0.0855
 
 </td>
 
 <td style="text-align:center;">
 
-3661.124
+4424.241
 
 </td>
 
 <td style="text-align:center;">
 
-1.0003
+0.9996
 
 </td>
 
@@ -3226,7 +3219,7 @@ coef\_outcome\[4,4\]
 
 <td style="text-align:center;">
 
-0.0009
+0.0000
 
 </td>
 
@@ -3238,31 +3231,31 @@ coef\_outcome\[4,4\]
 
 <td style="text-align:center;">
 
-0.0499
+0.0507
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.0967
+\-0.1006
 
 </td>
 
 <td style="text-align:center;">
 
-0.0991
+0.0961
 
 </td>
 
 <td style="text-align:center;">
 
-4018.184
+4180.269
 
 </td>
 
 <td style="text-align:center;">
 
-1.0013
+1.0000
 
 </td>
 
@@ -3284,43 +3277,43 @@ coef\_outcome\[5,1\]
 
 <td style="text-align:center;">
 
-\-0.1199
+\-0.1226
 
 </td>
 
 <td style="text-align:center;">
 
-0.0031
+0.0032
 
 </td>
 
 <td style="text-align:center;">
 
-0.2251
+0.2280
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.5540
+\-0.5560
 
 </td>
 
 <td style="text-align:center;">
 
-0.3293
+0.3308
 
 </td>
 
 <td style="text-align:center;">
 
-5226.583
+5094.499
 
 </td>
 
 <td style="text-align:center;">
 
-1.0003
+1.0004
 
 </td>
 
@@ -3342,43 +3335,43 @@ coef\_outcome\[5,2\]
 
 <td style="text-align:center;">
 
-\-1.7458
+\-1.7735
 
 </td>
 
 <td style="text-align:center;">
 
-0.0238
+0.0233
 
 </td>
 
 <td style="text-align:center;">
 
-1.6422
+1.6789
 
 </td>
 
 <td style="text-align:center;">
 
-\-5.1164
+\-5.2106
 
 </td>
 
 <td style="text-align:center;">
 
-1.4574
+1.4620
 
 </td>
 
 <td style="text-align:center;">
 
-4756.706
+5203.669
 
 </td>
 
 <td style="text-align:center;">
 
-0.9995
+0.9994
 
 </td>
 
@@ -3400,43 +3393,43 @@ coef\_outcome\[5,3\]
 
 <td style="text-align:center;">
 
-\-0.0639
+\-0.0656
 
 </td>
 
 <td style="text-align:center;">
 
-0.0010
+0.0009
 
 </td>
 
 <td style="text-align:center;">
 
-0.0637
+0.0651
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.1889
+\-0.1952
 
 </td>
 
 <td style="text-align:center;">
 
-0.0598
+0.0608
 
 </td>
 
 <td style="text-align:center;">
 
-3913.214
+4742.327
 
 </td>
 
 <td style="text-align:center;">
 
-1.0002
+0.9997
 
 </td>
 
@@ -3458,43 +3451,43 @@ coef\_outcome\[5,4\]
 
 <td style="text-align:center;">
 
-\-0.0411
+\-0.0424
 
 </td>
 
 <td style="text-align:center;">
 
-0.0015
+0.0014
 
 </td>
 
 <td style="text-align:center;">
 
-0.1041
+0.1013
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.2469
+\-0.2423
 
 </td>
 
 <td style="text-align:center;">
 
-0.1640
+0.1504
 
 </td>
 
 <td style="text-align:center;">
 
-4850.796
+5022.409
 
 </td>
 
 <td style="text-align:center;">
 
-0.9992
+0.9993
 
 </td>
 
@@ -3516,43 +3509,43 @@ coef\_outcome\[6,1\]
 
 <td style="text-align:center;">
 
-3.9055
+3.8905
 
 </td>
 
 <td style="text-align:center;">
 
-0.0142
+0.0145
 
 </td>
 
 <td style="text-align:center;">
 
-0.7342
+0.7257
 
 </td>
 
 <td style="text-align:center;">
 
-2.4803
+2.5129
 
 </td>
 
 <td style="text-align:center;">
 
-5.3786
+5.3496
 
 </td>
 
 <td style="text-align:center;">
 
-2670.785
+2506.562
 
 </td>
 
 <td style="text-align:center;">
 
-1.0013
+1.0008
 
 </td>
 
@@ -3574,43 +3567,43 @@ coef\_outcome\[6,2\]
 
 <td style="text-align:center;">
 
-\-0.3808
+\-0.4225
 
 </td>
 
 <td style="text-align:center;">
 
-0.0324
+0.0313
 
 </td>
 
 <td style="text-align:center;">
 
-2.0556
+2.0384
 
 </td>
 
 <td style="text-align:center;">
 
-\-4.3820
+\-4.4837
 
 </td>
 
 <td style="text-align:center;">
 
-3.6692
+3.4893
 
 </td>
 
 <td style="text-align:center;">
 
-4015.854
+4246.164
 
 </td>
 
 <td style="text-align:center;">
 
-0.9997
+0.9999
 
 </td>
 
@@ -3632,43 +3625,43 @@ coef\_outcome\[6,3\]
 
 <td style="text-align:center;">
 
-\-1.1036
+\-1.1088
 
 </td>
 
 <td style="text-align:center;">
 
-0.0036
+0.0043
 
 </td>
 
 <td style="text-align:center;">
 
-0.1774
+0.1792
 
 </td>
 
 <td style="text-align:center;">
 
-\-1.4529
+\-1.4624
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.7666
+\-0.7587
 
 </td>
 
 <td style="text-align:center;">
 
-2407.988
+1726.288
 
 </td>
 
 <td style="text-align:center;">
 
-1.0003
+1.0009
 
 </td>
 
@@ -3690,43 +3683,43 @@ coef\_outcome\[6,4\]
 
 <td style="text-align:center;">
 
-0.2175
+0.2271
 
 </td>
 
 <td style="text-align:center;">
 
-0.0061
+0.0067
 
 </td>
 
 <td style="text-align:center;">
 
-0.2898
+0.2967
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.3520
+\-0.3532
 
 </td>
 
 <td style="text-align:center;">
 
-0.7805
+0.8238
 
 </td>
 
 <td style="text-align:center;">
 
-2238.491
+1952.139
 
 </td>
 
 <td style="text-align:center;">
 
-1.0002
+1.0000
 
 </td>
 
@@ -3742,8 +3735,7 @@ tau
 
 <td style="text-align:center;vertical-align: top !important;" rowspan="5">
 
-causal
-effects
+causal effects
 
 </td>
 
@@ -3755,7 +3747,7 @@ tau
 
 <td style="text-align:center;">
 
-\-0.0115
+\-0.0120
 
 </td>
 
@@ -3773,25 +3765,25 @@ tau
 
 <td style="text-align:center;">
 
-\-0.0370
+\-0.0373
 
 </td>
 
 <td style="text-align:center;">
 
-0.0128
+0.0133
 
 </td>
 
 <td style="text-align:center;">
 
-4215.443
+4549.963
 
 </td>
 
 <td style="text-align:center;">
 
-0.9998
+0.9995
 
 </td>
 
@@ -3813,7 +3805,7 @@ delta\[1\]
 
 <td style="text-align:center;">
 
-\-0.0032
+\-0.0033
 
 </td>
 
@@ -3825,31 +3817,31 @@ delta\[1\]
 
 <td style="text-align:center;">
 
-0.0079
+0.0081
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.0188
+\-0.0193
 
 </td>
 
 <td style="text-align:center;">
 
-0.0123
+0.0122
 
 </td>
 
 <td style="text-align:center;">
 
-3995.480
+3537.918
 
 </td>
 
 <td style="text-align:center;">
 
-1.0001
+0.9994
 
 </td>
 
@@ -3865,7 +3857,7 @@ delta\[2\]
 
 <td style="text-align:center;">
 
-\-0.0028
+\-0.0030
 
 </td>
 
@@ -3877,31 +3869,31 @@ delta\[2\]
 
 <td style="text-align:center;">
 
-0.0077
+0.0076
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.0180
+\-0.0176
 
 </td>
 
 <td style="text-align:center;">
 
-0.0124
+0.0120
 
 </td>
 
 <td style="text-align:center;">
 
-3755.008
+3763.264
 
 </td>
 
 <td style="text-align:center;">
 
-1.0007
+1.0015
 
 </td>
 
@@ -3923,7 +3915,7 @@ zeta\[1\]
 
 <td style="text-align:center;">
 
-\-0.0087
+\-0.0089
 
 </td>
 
@@ -3935,31 +3927,31 @@ zeta\[1\]
 
 <td style="text-align:center;">
 
-0.0125
+0.0127
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.0332
+\-0.0338
 
 </td>
 
 <td style="text-align:center;">
 
-0.0161
+0.0162
 
 </td>
 
 <td style="text-align:center;">
 
-4166.851
+4630.450
 
 </td>
 
 <td style="text-align:center;">
 
-0.9997
+1.0000
 
 </td>
 
@@ -3975,7 +3967,7 @@ zeta\[2\]
 
 <td style="text-align:center;">
 
-\-0.0083
+\-0.0086
 
 </td>
 
@@ -3987,25 +3979,25 @@ zeta\[2\]
 
 <td style="text-align:center;">
 
-0.0123
+0.0126
 
 </td>
 
 <td style="text-align:center;">
 
-\-0.0331
+\-0.0332
 
 </td>
 
 <td style="text-align:center;">
 
-0.0158
+0.0163
 
 </td>
 
 <td style="text-align:center;">
 
-4170.490
+4619.492
 
 </td>
 
@@ -4024,10 +4016,7 @@ zeta\[2\]
 </div>
 
 <br />
-
-![](README_files/figure-gfm/visualize_posterior_graphs-1.png)<!-- -->
-![](README_files/figure-gfm/visualize_posterior_graphs-2.png)<!-- -->
-![](README_files/figure-gfm/visualize_posterior_graphs-3.png)<!-- -->
+![](README_files/figure-gfm/visualize_posterior_graphs-1.png)<!-- -->![](README_files/figure-gfm/visualize_posterior_graphs-2.png)<!-- -->![](README_files/figure-gfm/visualize_posterior_graphs-3.png)<!-- -->
 
 <br />
 
@@ -4035,9 +4024,9 @@ zeta\[2\]
 
   - Ferrari, S., and Cribari-Neto, F. (2004). “Beta regression for
     modelling rates and proportions,” Journal of Applied Statistics,
-    31(7), 799-815.
-  - Gelman, A., Carlin, J.B., Stern, H.S., and Rubin, D.B. (2004). 
-    Bayesian data analysis (2nd ed.)
-  - Imai, K., Keele, L., and Tingley, D. (2010),“A General Approach
-    to Causal Mediation Analysis,”Psychological Methods, 15(4),
-    309–334.
+    31(7), 799-815
+      - Gelman, A., Carlin, J.B., Stern, H.S., and Rubin, D.B. (2004).
+        Bayesian data analysis (2nd ed.)
+      - Imai, K., Keele, L., and Tingley, D. (2010),“A General Approach
+        to Causal Mediation Analysis,”Psychological Methods, 15(4),
+        309–334
