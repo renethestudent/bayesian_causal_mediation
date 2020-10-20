@@ -4016,8 +4016,13 @@ zeta\[2\]
 </div>
 
 <br />
-![](README_files/figure-gfm/visualize_posterior_graphs-1.png)<!-- -->![](README_files/figure-gfm/visualize_posterior_graphs-2.png)<!-- -->![](README_files/figure-gfm/visualize_posterior_graphs-3.png)<!-- -->
+![](README_files/figure-gfm/visualize_posterior_graphs1-1.png)<!-- -->
 
+<br />
+![](README_files/figure-gfm/visualize_posterior_graphs2-1.png)<!-- -->
+
+<br />
+![](README_files/figure-gfm/visualize_posterior_graphs3-1.png)<!-- -->
 <br />
 
 ##### References
