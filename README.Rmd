@@ -7,7 +7,7 @@ output:
 always_allow_html: yes
 ---
 
-```{css, echo=FALSE}
+```{css, echo=FALSE, include = FALSE}
 pre, code {white-space:pre !important; overflow-y:auto}
 ```
 

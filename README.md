@@ -3,10 +3,6 @@ Mediation
 ================
 Lexi Rene
 
-<style type="text/css">
-pre, code {white-space:pre !important; overflow-y:auto}
-</style>
-
 ## Purpose
 
 This code implements a Bayesian approach to causal mediation analysis,
