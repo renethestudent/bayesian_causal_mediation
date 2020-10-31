@@ -637,11 +637,11 @@ This model will return:
     
     * tau - total effect (length = total iterations)
     
-    * delta - causal effect (1:iterations, 2) where [t = 0, t = 1]
+    * delta - causal effect (1:iterations, 2) where [a = 0, a = 1]
     
-    * zeta - direct effect (1:iterations, 2) where [t = 0, t = 1]
+    * zeta - direct effect (1:iterations, 2) where [a = 0, a = 1]
     
-    * pred_m - generated quantities, prediction of the mediator (1:iterations, 1:sim, 2) where [t = 0, t = 1]
+    * pred_m - generated quantities, prediction of the mediator (1:iterations, 1:sim, 2) where [a = 0, a = 1]
     
     * pred_y - generated quantities, prediction of the outcome (1:iterations, 1:sim, 4) where [y0m0, y0m1, y1m1, y1m0]
 
