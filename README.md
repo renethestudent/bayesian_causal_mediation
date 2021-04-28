@@ -519,16 +519,15 @@ jobs_data <-
 
 ## Stan Model
 
-This model will return: \* coef\_mediator - alpha, gamma, mu, phi;
-coefficients for the mediator model (1:iterations,1:np,1:4) \*
-coef\_outcome - alpha, gamma, mu, phi; coefficients for the outcome
-model (1:iterations,1:np+1,1:4) \* tau - total effect (length = total
-iterations) \* delta - causal effect (1:iterations, 2) where \[a = 0, a
-= 1\] \* zeta - direct effect (1:iterations, 2) where \[a = 0, a = 1\]
+This model will return:
 
-*Note: pred\_y has the columns to represent ![Y(a,
-M(a))](https://latex.codecogs.com/svg.latex?Y%28a%2C%20M%28a%29%29
-"Y(a, M(a))").*
+  - coef\_mediator - alpha, gamma, mu, phi; coefficients for the
+    mediator model (1:iterations,1:np,1:4)
+  - coef\_outcome - alpha, gamma, mu, phi; coefficients for the outcome
+    model (1:iterations,1:np+1,1:4)
+  - tau - total effect (length = total iterations)
+  - delta - causal effect (1:iterations, 2) where \[a = 0, a = 1\]
+  - zeta - direct effect (1:iterations, 2) where \[a = 0, a = 1\]
 
 We can fit the model in Stan with the following code .
 
@@ -1390,12 +1389,9 @@ Frequentist
 
 <!-- ## Summarizing the Posteriors -->
 
-
 ![](README_files/figure-gfm/visualize_posterior_delta-1.png)<!-- -->
 
-
 ![](README_files/figure-gfm/visualize_posterior_zeta-1.png)<!-- -->
-
 
 ![](README_files/figure-gfm/visualize_posterior_tau-1.png)<!-- -->
 

@@ -393,15 +393,13 @@ jobs_data <-
 
 ## Stan Model
 This model will return: 
+  
   * coef_mediator -  alpha, gamma, mu, phi;  coefficients for the mediator model (1:iterations,1:np,1:4)
   * coef_outcome -  alpha, gamma, mu, phi; coefficients for the outcome model (1:iterations,1:np+1,1:4)
   * tau - total effect (length = total iterations)
   * delta - causal effect (1:iterations, 2) where [a = 0, a = 1]
   * zeta - direct effect (1:iterations, 2) where [a = 0, a = 1]
 
-
-*Note: pred_y has the columns to represent $Y(a, M(a))$.*
-  
 We can fit the model in Stan with the following code . 
 
 ```{r stan_function, message = F, warning = F, results = 'hide', include = FALSE}
@@ -802,7 +800,6 @@ annotate_figure(
 ```
 
 <!-- ## Summarizing the Posteriors -->
-<br />
 ```{r createvisualize_posterior, echo = FALSE}
 ##### * effects ci code ###############
 effect_est <- cbind(posterior_summary[c(46:49,45),c(1,3)] * 4,
@@ -951,7 +948,6 @@ tau_plot <- ggplot(tau, aes(iter,total,color= chain)) +
 ```
 
 
-<br />
 ```{r visualize_posterior_delta, include = TRUE, echo = FALSE}
 ## results
 #print(med_hist)
@@ -961,7 +957,7 @@ print(ggarrange(delta_a0_plot, delta_a1_plot,
 # knitr::include_graphics('README_files/figure-gfm/visualize_posterior_graphs1-1.png')
 ```
 
-<br />
+
 ```{r visualize_posterior_zeta, include = TRUE, echo = FALSE}
 #print(out_hist)
 print(## * * combined zeta plot ######
@@ -970,13 +966,13 @@ print(## * * combined zeta plot ######
 # knitr::include_graphics('README_files/figure-gfm/visualize_posterior_graphs2-1.png')
 ```
 
-<br />
+
 ```{r visualize_posterior_tau, include = TRUE, echo = FALSE}
 print(tau_plot)
 #print(dens_plot)
 # knitr::include_graphics('README_files/figure-gfm/visualize_posterior_graphs3-1.png')
 ```
-<br />
+
   
 ##### References
 
