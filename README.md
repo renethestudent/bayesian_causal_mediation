@@ -1393,10 +1393,11 @@ Frequentist
 
 ![](README_files/figure-gfm/visualize_posterior_delta-1.png)<!-- -->
 
+
 ![](README_files/figure-gfm/visualize_posterior_zeta-1.png)<!-- -->
 
+
 ![](README_files/figure-gfm/visualize_posterior_tau-1.png)<!-- -->
-<br />
 
 ##### References
 
